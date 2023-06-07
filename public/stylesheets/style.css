@@ -64,4 +64,12 @@ body {
   object-fit: contain;
   object-position: center;
 }
+.adminCol{
+  display: flex;
+  align-items: flex-start;
+  justify-content: left;
+}
+.adminIframe{
+  width: calc(100% - 150px);
+}
 
