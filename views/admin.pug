@@ -39,7 +39,7 @@ block content
         data[name]=e.value;
         let res=await fetch("/spief2023/changeTr",{body: JSON.stringify(data), method: "POST",headers:{"Content-Type": "application/json"}})
         if(res.ok)
-          console.log(await res.json())
+          console.log(await res.text())
       }
 
     })
