@@ -21,7 +21,8 @@ block content
             .transItemStatusW.mt-2
               input.transDate(value=tr.key name="key"  placeholder="CDN KEY")
           .adminIframe
-            iframe(src="/spief2023/player/"+tr.id width="1289" height="720" allowfullscreen)
+            .videoWr
+              iframe(src="/spief2023/player/"+tr.id width="1289" height="720" allowfullscreen)
         .transItemStatusW.mt-2
           div
             label Poster
