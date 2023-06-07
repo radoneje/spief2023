@@ -12,7 +12,7 @@ block content
                 let status=await res.json();
                 let videoWr=document.getElementById("videoWr")
                 if(videoWr.getAttribute("status") !=status){
-                    res=await fetch("/spief2023/playerCtrl/"+tr.id)
+                    res=await fetch("/spief2023/playerCtrl/"+!{tr.id})
                     videoWr.innerHTML=await res.text();
                     videoWr.setAttribute("status", status);
                 }
