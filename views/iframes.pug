@@ -58,7 +58,7 @@ block content
                 let txt=btn.innerHTML;
                 await navigator.clipboard.writeText(code.value)
                 btn.innerHTML="Скопировано"
-                setTimeout(()=>{btn.innerHTML="txt"}, 200)
+                setTimeout(()=>{btn.innerHTML=txt}, 2000)
               }
 
 
