@@ -12,7 +12,7 @@ block content
           input.transDate(value=tr.date name="date"  placeholder="ДД / HH:MM")
           input.transTitle(value=tr.title name="title" placeholder="название")
         .transItemStatusW.mt-2
-          select.transItemStatus(name="status" )
-            option(value=1) Постер
-            option(value=1) Эфир
-            option(value=1) Запись
+          select.transItemStatus(name="status" value=tr.status)
+            option(value=1 ) Постер
+            option(value=2) Эфир
+            option(value=2) Запись
