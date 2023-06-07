@@ -6,15 +6,15 @@ router.get('/', async function(req, res, next) {
   res.render('index', { });
 });
 router.get('/admin', async function(req, res, next) {
-  let translations=await req.knex("t_translations").orderBy("id")
+  let translations=await req.knex("t_translations").orderBy("date")
   res.render('admin', {  translations});
 });
 router.get('/iframes', async function(req, res, next) {
-    let translations=await req.knex("t_translations").orderBy("id")
+    let translations=await req.knex("t_translations").orderBy("date")
     res.render('iframes', {  translations});
 });
 router.get('/trStatusAll', async function(req, res, next) {
-    let translations=await req.knex("t_translations").orderBy("id")
+    let translations=await req.knex("t_translations").orderBy("date")
     res.json(translations);
 });
 
