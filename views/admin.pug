@@ -41,7 +41,7 @@ block content
            let names =(Object.keys(tr))
             names.forEach(name=>{
               let elem=wr.querySelector("[name='"+name+"']")
-              if(elem){
+              if(elem &&document.activeElement != elem){
                 elem.value=wr[name]
               }
             })
