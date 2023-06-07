@@ -9,3 +9,20 @@ body {
   grid-template-columns: 1fr 1fr;
   grid-gap: 40px;
 }
+.transItem{
+  border: 1px solid gray;
+  border-radius: 8px;
+  padding: 8px;
+}
+.transDate{
+  width:100px;
+  box-sizing: border-box;
+  padding: 4px 8px;
+  border: 1px solid black;
+}
+.transTitle{
+  width:calc(100% - 100px);
+  box-sizing: border-box;
+  padding: 4px 8px;
+}
+

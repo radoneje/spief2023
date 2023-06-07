@@ -9,5 +9,5 @@ block content
     each tr in translations
       .transItem
         .transItemTitleWr
-          input(value=tr.date name="date")
-          input(value=tr.title name="title")
+          input.transDate(value=tr.date name="date"  placeholder="ДД / HH:MM")
+          input.transTitle(value=tr.title name="title" placeholder="название")
