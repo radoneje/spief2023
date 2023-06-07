@@ -31,6 +31,12 @@ block content
             label Rec mp4
             input.transUrl(value=tr.video name="video"  placeholder="video")
   script.
+    const updateStatus=async()=>{
+      let res = await fetch("/spief2023/trStatusAll")
+      if(res.ok){
+        let data=await res.json();
+      }
+    }
     document.querySelectorAll(".transWr input[name], .transWr select[name]").forEach(e=>{
       e.onchange=async()=>{
         let id=e.closest(".transItem").getAttribute("trid");
@@ -43,3 +49,5 @@ block content
       }
 
     })
+    updateStatus();
+
