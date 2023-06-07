@@ -31,4 +31,11 @@ body {
   padding: 4px 8px;
   border: 1px solid black;
 }
+.transUrl{
+  width:100%;
+  display: block;
+  box-sizing: border-box;
+  padding: 4px 8px;
+  border: 1px solid black;
+}
 
