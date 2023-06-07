@@ -1,9 +1,11 @@
 extends layout
 block head
+    link( href="/spief2023/stylesheets/video-js.css" rel="stylesheet" )
 block content
     .videoWr#videoWr(status=0)
         .placeholder
             include loader.svg
+    script(src="/spief2023/javascripts/video.min.js")
     script.
         const trid=!{JSON.stringify(tr.id)}
         const getStatus=async ()=>{
