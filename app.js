@@ -27,6 +27,7 @@ app.use(cookieParser());
 app.use("/spief2023",express.static(path.join(__dirname, 'public')));
 app.use('/', (req, res,next)=>{
   req.knex=knex;
+  res.next();
 });
 app.use('/', indexRouter);
 app.use('/spief2023', indexRouter);
