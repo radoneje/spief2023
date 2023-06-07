@@ -8,6 +8,13 @@ block content
     script(src="/spief2023/javascripts/video.min.js")
     script.
         const trid=!{JSON.stringify(tr.id)}
+        const initPlayer=()=>{
+            let player = videojs('player', {
+                controls: true,
+                autoplay: false,
+                preload: 'auto'
+            });
+        }
         const getStatus=async ()=>{
             let res=await fetch("/spief2023/status/"+trid)
             if(res.ok)
@@ -18,6 +25,8 @@ block content
                     res=await fetch("/spief2023/playerCtrl/"+!{tr.id})
                     videoWr.innerHTML=await res.text();
                     videoWr.setAttribute("status", status);
+                    if(status>1)
+                        initPlayer()
                 }
             }
             setTimeout(getStatus, 10*1000)
