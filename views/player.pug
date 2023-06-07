@@ -8,8 +8,11 @@ block content
     script(src="/spief2023/javascripts/video.min.js")
     script.
         const trid=!{JSON.stringify(tr.id)}
+        let player;
         const initPlayer=()=>{
-            let player = videojs('player', {
+            if(player)
+            videojs(player).dispose();
+            player = videojs('player', {
                 preload: 'auto'
             });
         }
