@@ -13,6 +13,10 @@ router.get('/iframes', async function(req, res, next) {
     let translations=await req.knex("t_translations").orderBy("date")
     res.render('iframes', {  translations});
 });
+router.get('/roscongress', async function(req, res, next) {
+    let translations=await req.knex("t_translations").orderBy("date")
+    res.render('roscongress', {  translations});
+});
 router.get('/trStatusAll', async function(req, res, next) {
     let translations=await req.knex("t_translations").orderBy("date")
     res.json(translations);
