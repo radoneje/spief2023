@@ -1,0 +1,10 @@
+{
+  "pgConnection": {
+    "host": "192.168.15.96",
+    "user": "",
+    "password": "",
+    "database": ""
+  },
+  "sha256Secret": "Bldfnjrn%^hg"
+}
+
