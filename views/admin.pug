@@ -5,3 +5,9 @@ block head
 block content
   form.mt-2(method="POST" action="/spief2023/admin/AddSession")
     input.btn.btn-success(type="submit" value="Добавить сессию")
+  .mt-2.transWr
+    each tr in translations
+      .transItem
+        .transItemTitleWr
+          input(value="tr.data")
+          input(value="tr.title")

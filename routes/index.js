@@ -2,8 +2,9 @@ var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get('/', async function(req, res, next) {
+  let translations=await req.knex("t_translations").orderBy("id")
+  res.render('index', { translations });
 });
 router.get('/admin', async function(req, res, next) {
   res.render('admin', { title: 'Express' });
