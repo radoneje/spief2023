@@ -17,7 +17,12 @@ block content
         let player;
         const initPlayer=()=>{
             if(player)
-            player.dispose();
+                try {
+                    player.dispose();
+                }
+            catch(e){
+                console.warn(e)
+            }
             player = videojs('player', {
                 preload: 'auto'
             });

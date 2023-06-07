@@ -57,6 +57,8 @@ router.get('/playerCtrl/:id', async function(req, res, next) {
         return res.render("live", {tr})
     if(tr.status==3)
         return res.render("video", {tr})
+
+    res.render("off", {tr})
 });
 
 
