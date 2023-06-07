@@ -9,6 +9,10 @@ router.get('/admin', async function(req, res, next) {
   let translations=await req.knex("t_translations").orderBy("id")
   res.render('admin', {  translations});
 });
+router.get('/iframes', async function(req, res, next) {
+    let translations=await req.knex("t_translations").orderBy("id")
+    res.render('iframes', {  translations});
+});
 router.get('/trStatusAll', async function(req, res, next) {
     let translations=await req.knex("t_translations").orderBy("id")
     res.json(translations);
