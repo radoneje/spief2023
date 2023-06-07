@@ -16,13 +16,7 @@ block content
             input.transTitle(value=tr.title name="title" readonly)
           .adminCol
             .adminRow
-              .transItemStatusW.mt-2
-                select.transItemStatus(name="status" value=tr.status)
-                  option(value="1"  selected=tr.status==1) Постер
-                  option(value="2" selected=tr.status==2) Эфир
-                  option(value="3" selected=tr.status==3) Запись
-              .transItemStatusW.mt-2
-                input.transDate(value=tr.key name="key"  placeholder="CDN KEY")
+
             .adminIframe
               .videoWr
                 iframe(src="/spief2023/player/"+tr.id width="1289" height="720" allowfullscreen)
