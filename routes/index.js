@@ -5,8 +5,13 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
-router.get('/admin', function(req, res, next) {
+router.get('/admin', async function(req, res, next) {
   res.render('admin', { title: 'Express' });
 });
+router.get('/admin/AddSession', async function(req, res, next) {
+  await req.knex("t_translations").insert()
+  res.redirect('/spief2023/admin');
+});
+
 
 module.exports = router;
