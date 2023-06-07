@@ -38,7 +38,14 @@ block content
         data.forEach(tr=>{
           let wr=document.querySelector("#tr"+tr.id)
           if(wr){
-            console.log(Object.keys(tr))
+           let names =(Object.keys(tr))
+            names.forEach(name=>{
+              let elem=wr.querySelector("[name='"+name+"']")
+              if(elem){
+                elem.value=wr[name]
+              }
+            })
+
           }
         })
       }
