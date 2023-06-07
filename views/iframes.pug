@@ -18,20 +18,13 @@ block content
             .adminRow
 
             .adminIframe
-              .videoWr
-                iframe(src="/spief2023/player/"+tr.id width="1289" height="720" allowfullscreen)
+              div(style="width: 100%;height: 0;position: relative;padding-bottom: 56.25%;overflow: hidden;")
+                iframe(src="/spief2023/player/"+tr.id width="1289" height="720" allowfullscreen style="position: absolute;top:0;left: 0;width: 100%;height: 100%;")
           .transItemStatusW.mt-2
             div
-              label Poster
-              input.transUrl(value=tr.poster name="poster"  placeholder="Poster")
-          .transItemStatusW.mt-2
-            div
-              label Live HLS
-              input.transUrl(value=tr.hls name="hls"  placeholder="hls")
-          .transItemStatusW.mt-2
-            div
-              label Rec mp4
-              input.transUrl(value=tr.video name="video"  placeholder="video")
+              label код Iframe
+              textarea.iframeCode(readonly)
+
   script.
     const updateStatus=async()=>{
       let res = await fetch("/spief2023/trStatusAll")
@@ -54,16 +47,9 @@ block content
       }
       setTimeout(updateStatus, 10*1000)
     }
-    document.querySelectorAll(".transWr input[name], .transWr select[name]").forEach(e=>{
-      e.onchange=async()=>{
-        let id=e.closest(".transItem").getAttribute("trid");
-        let name=e.getAttribute("name")
-        let data={id}
-        data[name]=e.value;
-        let res=await fetch("/spief2023/changeTr",{body: JSON.stringify(data), method: "POST",headers:{"Content-Type": "application/json"}})
-        if(res.ok)
-          console.log(await res.text())
-      }
+    document.querySelectorAll(".transItem").forEach(elem=>{
+     elem.querySelector(".adminIframe")
+      elem.iframeCode(".iframeCode").value= elem.querySelector(".adminIframe").innerHTML
 
     })
     updateStatus();
