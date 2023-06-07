@@ -5,8 +5,9 @@ block content
         .placeholder
             include loader.svg
     script.
+        const trid=!{JSON.stringify(tr.id)}
         const getStatus=async ()=>{
-            let res=await fetch("/spief2023/status/"+tr.id)
+            let res=await fetch("/spief2023/status/"+trid)
             if(res.ok)
             {
                 let status=await res.json();
