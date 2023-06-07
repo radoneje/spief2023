@@ -42,6 +42,18 @@ router.get('/status/:id', async function(req, res, next) {
         return res.sendStatus(404)
     res.json(translations[0].status)
 });
+router.get('/playerCtrl/:id', async function(req, res, next) {
+    let translations=await req.knex("t_translations").where({id:req.params.id})
+    if(translations.length==0)
+        return res.sendStatus(404)
+   let tr=translations[0]
+    if(tr.status==1)
+        return res.render("poster", {tr})
+    if(tr.status==2)
+        return res.render("live", {tr})
+    if(tr.status==3)
+        return res.render("record", {tr})
+});
 
 
 
