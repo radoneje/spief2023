@@ -31,7 +31,7 @@ router.post('/changeTr', async function(req, res, next) {
     }
 });
 router.get('/player/:id', async function(req, res, next) {
-    let translations=await req.knex("t_translations").where({id:id})
+    let translations=await req.knex("t_translations").where({id:req.params.id})
     if(translations.length==0)
         return res.sendStatus(404)
     res.render("player", {tr:translations[0]})
