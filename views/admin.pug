@@ -33,7 +33,7 @@ block content
   script.
     document.querySelectorAll(".transWr input[name]").forEach(e=>{
       e.onchange=async()=>{
-        let id=e.closest(".transWr").getAttribute("trid");
+        let id=e.closest(".transItem").getAttribute("trid");
         let name=e.getAttribute("name")
         let data={id}
         data[name]=e.value;
