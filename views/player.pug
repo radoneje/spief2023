@@ -1,7 +1,22 @@
 extends layout
 block head
 block content
-    .videoWr
+    .videoWr#videoWr(status=0)
         .placeholder
             include loader.svg
+    script.
+        const getStatus=async ()=>{
+            let res=await fetch("/spief2023/status/"+tr.id)
+            if(res.ok)
+            {
+                let status=await res.json();
+                let videoWr=document.getElementById("videoWr")
+                if(videoWr.getAttribute("status") !=status){
+                    res=await fetch("/spief2023/playerCtrl/"+tr.id)
+                    videoWr.innerHTML=await res.text();
+                    videoWr.setAttribute("status", status);
+                }
+            }
+        }
+        getStatus();
 
