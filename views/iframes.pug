@@ -24,6 +24,7 @@ block content
             div
               label код Iframe
               textarea.iframeCode(readonly)
+              .copyCode.btn.mt-2.btn-sm.btn-success Копировать код
 
   script.
     const updateStatus=async()=>{
@@ -48,8 +49,18 @@ block content
       setTimeout(updateStatus, 10*1000)
     }
     document.querySelectorAll(".transItem").forEach(elem=>{
-     elem.querySelector(".adminIframe")
-      elem.querySelector(".iframeCode").value= elem.querySelector(".adminIframe").innerHTML
+      elem.querySelector(".adminIframe")
+      let code=elem.querySelector(".iframeCode")
+      code.value= elem.querySelector(".adminIframe").innerHTML
+
+      let btn=elem.querySelector(".copyCode")
+              btn.onclick=async()=>{
+                let txt=btn.innerHTML;
+                await navigator.clipboard.writeText(code.value)
+                btn.innerHTML="Скопировано"
+                setTimeout(()=>{btn.innerHTML="txt"}, 200)
+              }
+
 
     })
     updateStatus();

@@ -80,6 +80,7 @@ body {
   display: block;
   width: 100%;
   box-sizing: border-box;
-  height: 6em;
+  height: 8em;
+  font-size: 0.8em;
 }
 
