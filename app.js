@@ -9,7 +9,7 @@ var indexRouter = require('./routes/index');
 
 const pg = require('knex')({
   client: 'pg',
-  connection: co,
+  connection: config.pgConnection,
   searchPath: ['knex', 'public'],
 });
 
