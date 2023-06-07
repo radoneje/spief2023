@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('spief2023:server');
+var debug = require('debug')('spief2123:server');
 var http = require('http');
 
 /**
