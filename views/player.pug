@@ -9,8 +9,7 @@ block head
         }
 block content
     .videoWr#videoWr(status=0)
-        .placeholder
-            include loader.svg
+        include off
     script(src="/spief2023/javascripts/video.min.js")
     script.
         const trid=!{JSON.stringify(tr.id)}
