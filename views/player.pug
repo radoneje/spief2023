@@ -1,6 +1,12 @@
 extends layout
 block head
     link( href="/spief2023/stylesheets/video-js.css" rel="stylesheet" )
+    style.
+        body {
+           max-width:100%;
+            max-height: 100%;
+            overflow: hidden;
+        }
 block content
     .videoWr#videoWr(status=0)
         .placeholder
