@@ -71,10 +71,7 @@ body {
 }
 .adminIframe{
   width: calc(100% - 150px);
-}
-.adminIframe iframe{
-  width: 100%;
-  height: auto;
-  border: 1px solid transparent;
+  box-sizing: border-box;
+  padding:0 8px;
 }
 
