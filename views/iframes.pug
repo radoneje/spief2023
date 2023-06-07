@@ -7,8 +7,8 @@ block head
     }
 block content
   .container
-    h4 ПМЭФ 2023 сессии Сбера
-    .mt-2.transWr
+    h4.mt-2 ПМЭФ 2023 сессии Сбера
+    .transWr
       each tr in translations
         .transItem(id="tr"+tr.id trid=tr.id status=tr.status)
           .transItemTitleWr
