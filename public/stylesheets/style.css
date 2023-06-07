@@ -7,7 +7,7 @@ body {
   padding: 64px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 40px;
+  grid-gap: 24px;
 }
 .transItem{
   border: 1px solid gray;
@@ -82,5 +82,13 @@ body {
   box-sizing: border-box;
   height: 8em;
   font-size: 0.8em;
+}
+@media all and (max-width:980px)  {
+  .transWr{
+    padding: 12px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 8px;
+  }
 }
 
