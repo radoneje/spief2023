@@ -13,6 +13,18 @@ router.post('/admin/AddSession', async function(req, res, next) {
    await req.knex("t_translations").insert({},"*")
   res.redirect('/spief2023/admin');
 });
+router.post('/changeTr', async function(req, res, next) {
+    try {
+        let id=req.body.id;
+        delete req.body.id;
+        let r=await req.knex("t_translations").update(req.body, "*").where({id:id})
+        res.json(r[0])
+    }
+    catch (e){
+        res.json(e)
+    }
+});
+
 
 
 

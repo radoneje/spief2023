@@ -7,7 +7,7 @@ block content
     input.btn.btn-success(type="submit" value="Добавить сессию")
   .mt-2.transWr
     each tr in translations
-      .transItem
+      .transItem(trid=tr.id)
         .transItemTitleWr
           input.transDate(value=tr.date name="date"  placeholder="ДД / HH:MM")
           input.transTitle(value=tr.title name="title" placeholder="название")
@@ -30,3 +30,16 @@ block content
           div
             label Rec mp4
             input.transUrl(value=tr.video name="video"  placeholder="video")
+  script.
+    document.querySelectorAll(".transWr input[name]").forEach(e=>{
+      e.onchange=async()=>{
+        let id=e.closest(".transWr").getAttribute("trid");
+        let name=e.getAttribute("name")
+        let data={id}
+        data[name]=e.value;
+        let res=await fetch("/spief2023/changeTr",{body: JSON.stringify(data), method: "POST",headers:{"Content-Type": "application/json"}})
+        if(res.ok)
+          console.log(await res.json())
+      }
+
+    })
