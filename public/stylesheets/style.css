@@ -76,6 +76,10 @@ body {
 }
 .iframeCode{
   padding: 8px;
-  border:1px solid gray;
+  border: 1px solid gray;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  height: 6em;
 }
 
