@@ -49,6 +49,7 @@ block content
           }
         })
       }
+      setTimeout(updateStatus, 10*1000)
     }
     document.querySelectorAll(".transWr input[name], .transWr select[name]").forEach(e=>{
       e.onchange=async()=>{
