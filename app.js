@@ -7,7 +7,7 @@ var config = require('./config.json');
 
 var indexRouter = require('./routes/index');
 
-const pg = require('knex')({
+const knex = require('knex')({
   client: 'pg',
   connection: config.pgConnection,
   searchPath: ['knex', 'public'],
@@ -25,7 +25,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use("/spief2023",express.static(path.join(__dirname, 'public')));
-
+app.use('/', (req, res,next)=>{
+  req.knex=knex;
+});
 app.use('/', indexRouter);
 app.use('/spief2023', indexRouter);
 
