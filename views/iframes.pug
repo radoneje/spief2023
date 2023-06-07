@@ -3,37 +3,38 @@ block head
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
 block content
-  h4 ПМЭФ 2023 сессии Сбера
-  .mt-2.transWr
-    each tr in translations
-      .transItem(id="tr"+tr.id trid=tr.id)
-        .transItemTitleWr
-          input.transDate(value=tr.date name="date" readonly)
-          input.transTitle(value=tr.title name="title" readonly)
-        .adminCol
-          .adminRow
-            .transItemStatusW.mt-2
-              select.transItemStatus(name="status" value=tr.status)
-                option(value="1"  selected=tr.status==1) Постер
-                option(value="2" selected=tr.status==2) Эфир
-                option(value="3" selected=tr.status==3) Запись
-            .transItemStatusW.mt-2
-              input.transDate(value=tr.key name="key"  placeholder="CDN KEY")
-          .adminIframe
-            .videoWr
-              iframe(src="/spief2023/player/"+tr.id width="1289" height="720" allowfullscreen)
-        .transItemStatusW.mt-2
-          div
-            label Poster
-            input.transUrl(value=tr.poster name="poster"  placeholder="Poster")
-        .transItemStatusW.mt-2
-          div
-            label Live HLS
-            input.transUrl(value=tr.hls name="hls"  placeholder="hls")
-        .transItemStatusW.mt-2
-          div
-            label Rec mp4
-            input.transUrl(value=tr.video name="video"  placeholder="video")
+  .container
+    h4 ПМЭФ 2023 сессии Сбера
+    .mt-2.transWr
+      each tr in translations
+        .transItem(id="tr"+tr.id trid=tr.id)
+          .transItemTitleWr
+            input.transDate(value=tr.date name="date" readonly)
+            input.transTitle(value=tr.title name="title" readonly)
+          .adminCol
+            .adminRow
+              .transItemStatusW.mt-2
+                select.transItemStatus(name="status" value=tr.status)
+                  option(value="1"  selected=tr.status==1) Постер
+                  option(value="2" selected=tr.status==2) Эфир
+                  option(value="3" selected=tr.status==3) Запись
+              .transItemStatusW.mt-2
+                input.transDate(value=tr.key name="key"  placeholder="CDN KEY")
+            .adminIframe
+              .videoWr
+                iframe(src="/spief2023/player/"+tr.id width="1289" height="720" allowfullscreen)
+          .transItemStatusW.mt-2
+            div
+              label Poster
+              input.transUrl(value=tr.poster name="poster"  placeholder="Poster")
+          .transItemStatusW.mt-2
+            div
+              label Live HLS
+              input.transUrl(value=tr.hls name="hls"  placeholder="hls")
+          .transItemStatusW.mt-2
+            div
+              label Rec mp4
+              input.transUrl(value=tr.video name="video"  placeholder="video")
   script.
     const updateStatus=async()=>{
       let res = await fetch("/spief2023/trStatusAll")
