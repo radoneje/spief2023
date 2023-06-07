@@ -21,6 +21,7 @@ router.post('/changeTr', async function(req, res, next) {
         res.json(r[0])
     }
     catch (e){
+        console.warn(e)
         res.json(e)
     }
 });
