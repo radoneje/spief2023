@@ -52,7 +52,7 @@ router.get('/playerCtrl/:id', async function(req, res, next) {
     if(tr.status==2)
         return res.render("live", {tr})
     if(tr.status==3)
-        return res.render("record", {tr})
+        return res.render("video", {tr})
 });
 
 
