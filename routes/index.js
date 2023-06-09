@@ -21,6 +21,15 @@ router.get('/trStatusAll', async function(req, res, next) {
     let translations=await req.knex("t_translations").orderBy("date")
     res.json(translations);
 });
+router.get('/trRecord', async function(req, res, next) {
+    if(!req.query.file)
+        return res.json(404)
+
+    let m=req.query.file.match(/^(\d+)([en|ru])/)
+    let dt={trid:m[1], lang:m[2],file:req.query.file}
+    let r=await req.knex("t_records").insert(dt,"*")
+    res.json(r);
+});
 
 router.post('/admin/AddSession', async function(req, res, next) {
    await req.knex("t_translations").insert({},"*")
