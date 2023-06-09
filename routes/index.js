@@ -108,6 +108,14 @@ router.get('/trExcel', async function(req, res, next) {
     worksheet.getColumn(7).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
     worksheet.getColumn(8).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
     worksheet.getColumn(9).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
+    let headFont={
+        size: 16,
+        bold: true
+    };
+    for(let i=1; i<11; i++) {
+        worksheet.getCell('B'+i).font = headFont
+    }
+
 
     let i=0;
     worksheet.addRow(["Cписок трансляций ПМЭФ2023"])
