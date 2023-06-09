@@ -20,7 +20,7 @@ block content
                 option(value="1"  selected=tr.status==1) Постер
                 option(value="2" selected=tr.status==2) Эфир
                 option(value="3" selected=tr.status==3) Запись
-            .transItemStatusW.mt-2
+            //.transItemStatusW.mt-2
               input.transDate(value=tr.key name="key"  placeholder="CDN KEY")
           .adminIframe
             .videoWr
@@ -31,11 +31,15 @@ block content
             input.transUrl(value=tr.poster name="poster"  placeholder="Poster")
         .transItemStatusW.mt-2
           div
+            label ВК Ссылка на видео (поделиться->экспортировать->Прямая ссылка)
+            input.transUrl(value=tr.vklink_ru name="vklink_ru"  placeholder="Вставьте ссылку")
+        .transItemStatusW.mt-2
+          div
             label ВК Настройки трансляции -> KEY
             input.transUrl(value=tr.restream_ru name="restream_ru"  placeholder="Вставьте ключ трансляции")
         .transItemStatusW.mt-2
           div
-            label ВК IFRAME (поделиться->экспорторовать->код для вставки)
+            label ВК IFRAME (поделиться->экспортировать->код для вставки)
             textarea.transUrl(value=tr.iframe name="iframe"  placeholder="Вставьте код Iframe")
         .transItemStatusW.mt-2
           div
