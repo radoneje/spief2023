@@ -48,10 +48,12 @@ block content
           div
             label Ссылка на СберТВ
             input.transUrl(value=tr.sbertv_ru name="sbertv_ru"  placeholder="Вставьте ссылку")
-        .transItemStatusW.mt-2
-          div
-            label Rec mp4
-            input.transUrl(value=tr.video name="video"  placeholder="video")
+        .transItemStatusW.mt-2.recWr
+            div
+              h6 запись ru
+            div
+              h6 запись en
+
   script.
     const updateStatus=async()=>{
       let res = await fetch("/spief2023/trStatusAll")

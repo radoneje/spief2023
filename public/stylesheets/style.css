@@ -98,6 +98,11 @@ textarea.transUrl{
   width: max-content;
   padding: 4px;
 }
+.recWr{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 24px;
+}
 @media all and (max-width:980px)  {
   .transWr{
     padding: 12px;

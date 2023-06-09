@@ -111,7 +111,7 @@ router.get('/trExcel', async function(req, res, next) {
 
 
     let i=0;
-    worksheet.addRow(["Cписок трансляций ПМЭФ2023"])
+    worksheet.addRow(["Cписок трансляций ПМЭФ 2023"])
     worksheet.getRow(1).getCell(1).font={ size: 16, bold: true}
     worksheet.addRow(['No', 'Id', "название", "VK link", "VK iframe", "VK key", "SberTV Link", "Запись ru", "Запись Eng"]);
     for(let i=1; i<11; i++) {
@@ -120,7 +120,7 @@ router.get('/trExcel', async function(req, res, next) {
 
     translations.forEach(tr=>{
         i++;
-        worksheet.addRow([i, tr.id, tr.date+" \n// "+ tr.title, tr.vklink_ru, tr.iframe, tr.restream_ru, tr.sbertv_ru, tr.rec_ru, tr.rec_en]);
+        worksheet.addRow([i, tr.id, tr.date+" \n"+ tr.title, tr.vklink_ru, tr.iframe, tr.restream_ru, tr.sbertv_ru, tr.rec_ru, tr.rec_en]);
     })
 
     res.status(200);
