@@ -108,18 +108,14 @@ router.get('/trExcel', async function(req, res, next) {
     worksheet.getColumn(7).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
     worksheet.getColumn(8).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
     worksheet.getColumn(9).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
-    let headFont={
-        size: 16,
-        bold: true
-    };
-
 
 
     let i=0;
     worksheet.addRow(["Cписок трансляций ПМЭФ2023"])
+    worksheet.getRow(1).getCell(1).font={ size: 16, bold: true}
     worksheet.addRow(['No', 'Id', "название", "VK link", "VK iframe", "VK key", "SberTV Link", "Запись ru", "Запись Eng"]);
     for(let i=1; i<11; i++) {
-        worksheet.getCell('B'+i).font = headFont
+        worksheet.getRow(2).getCell(i).font={ size: 14, bold: true}
     }
 
     translations.forEach(tr=>{
