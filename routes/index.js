@@ -100,6 +100,14 @@ router.get('/trExcel', async function(req, res, next) {
     worksheet.getColumn(8).width=40;
     worksheet.getColumn(9).width=40;
 
+    sheet.getColumn(3).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
+    sheet.getColumn(4).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
+    sheet.getColumn(5).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
+    sheet.getColumn(6).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
+    sheet.getColumn(7).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
+    sheet.getColumn(8).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
+    sheet.getColumn(9).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
+
     let i=0;
     worksheet.addRow(["Cписок трансляций ПМЭФ2023"])
     worksheet.addRow(['No', 'Id', "название", "VK link", "VK iframe", "VK key", "SberTV Link", "Rec ru", "rec Eng"]);
