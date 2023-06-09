@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const ExcelJS = require('exceljs');
 
 /* GET home page. */
 router.get('/', async function(req, res, next) {
@@ -86,6 +87,28 @@ router.get('/playerCtrl/:id', async function(req, res, next) {
 
     res.render("off", {tr})
 });
+router.get('/trExcel/', async function(req, res, next) {
+    let translations=await req.knex("t_translations").orderBy("date")
+    const workbook = new ExcelJS.Workbook();
+    const worksheet = workbook.addWorksheet('Трансляции ПМЭФ 2023 на СберТВ');
+    worksheet.getColumn(1).width=10;
+    worksheet.getColumn(2).width=10;
+    worksheet.getColumn(3).width=10;
+    worksheet.getColumn(4).width=10;
+    worksheet.getColumn(5).width=10;
+    let i=0;
+    worksheet.addRow(['No', 'Id', "название", "VK link", "VK iframe", "VK key", "SberTV Link", "Rec ru", "rec Eng"]);
+
+    res.status(200);
+    res.setHeader('Content-Type', 'text/xlsx');
+    res.setHeader(
+        'Content-Disposition',
+        'attachment; filename=SPIEF2023_translations.xlsx'
+    );
+   await  workbook.xlsx.write(res)
+    res.end()
+});
+
 
 
 
