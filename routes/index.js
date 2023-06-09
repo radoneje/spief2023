@@ -30,6 +30,12 @@ router.get('/trRecord', async function(req, res, next) {
     let r=await req.knex("t_records").insert(dt,"*")
     res.json(r);
 });
+router.get('/trRecordDone', async function(req, res, next) {
+    if(!req.query.file)
+        return res.json(404)
+    let r=await req.knex("t_records").update({done:true, doneDate:new Date()},"*").where({filename:req.query.file})
+    res.json(r);
+});
 
 router.post('/admin/AddSession', async function(req, res, next) {
    await req.knex("t_translations").insert({},"*")
