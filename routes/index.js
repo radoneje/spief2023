@@ -34,7 +34,7 @@ router.get('/trRecord', async function(req, res, next) {
         return res.send(0)
     if(dt.lang!='ru')
         return res.send(1)
-    res.send(JSON.stringify( trs[0].restream_ru));
+    res.send(JSON.stringify( trs[0]));
 
 });
 router.get('/trRecordDone', async function(req, res, next) {
