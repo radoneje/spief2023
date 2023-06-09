@@ -95,6 +95,7 @@ router.get('/trExcel', async function(req, res, next) {
     worksheet.getColumn(2).width=10;
     worksheet.getColumn(3).width=40;
     worksheet.getColumn(4).width=40;
+    worksheet.getColumn(5).width=40;
     worksheet.getColumn(6).width=40;
     worksheet.getColumn(7).width=40;
     worksheet.getColumn(8).width=40;
