@@ -31,9 +31,9 @@ router.get('/trRecord', async function(req, res, next) {
 
     let r=await req.knex("t_records").insert(dt,"*")
     if(trs.length==0)
-        res.send(null)
+        return res.send(null)
     if(dt.lang!='ru')
-        res.send(null)
+        return res.send(null)
     res.send(trs[0].restream_ru);
 
 });
