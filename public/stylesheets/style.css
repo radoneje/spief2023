@@ -92,7 +92,10 @@ textarea.transUrl{
   display: block;
 }
 .transId{
-
+  font-weight: bold;
+  background: #eaea86;
+  width: max-content;
+  padding: 4px;
 }
 @media all and (max-width:980px)  {
   .transWr{
