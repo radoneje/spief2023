@@ -30,8 +30,12 @@ block content
             input.transUrl(value=tr.poster name="poster"  placeholder="Poster")
         .transItemStatusW.mt-2
           div
-            label Live HLS
-            input.transUrl(value=tr.hls name="hls"  placeholder="hls")
+            label ВК Настройки трансляции -> KEY
+            input.transUrl(value=tr.restream_ru name="restream_ru"  placeholder="hls")
+        .transItemStatusW.mt-2
+          div
+            label ВК КОД IFRAME
+            textarea.transUrl(value=tr.iframe name="iframe"  placeholder="hls")
         .transItemStatusW.mt-2
           div
             label Rec mp4
