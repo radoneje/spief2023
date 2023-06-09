@@ -112,14 +112,16 @@ router.get('/trExcel', async function(req, res, next) {
         size: 16,
         bold: true
     };
-    for(let i=1; i<11; i++) {
-        worksheet.getCell('B'+i).font = headFont
-    }
+
 
 
     let i=0;
     worksheet.addRow(["Cписок трансляций ПМЭФ2023"])
     worksheet.addRow(['No', 'Id', "название", "VK link", "VK iframe", "VK key", "SberTV Link", "Запись ru", "Запись Eng"]);
+    for(let i=1; i<11; i++) {
+        worksheet.getCell('B'+i).font = headFont
+    }
+
     translations.forEach(tr=>{
         i++;
         worksheet.addRow([i, tr.id, tr.date+" // "+ tr.title, tr.vklink_ru, tr.iframe, tr.restream_ru, tr.sbertv_ru, tr.rec_ru, tr.rec_en]);
