@@ -8,6 +8,7 @@ block content
   .mt-2.transWr
     each tr in translations
       .transItem(id="tr"+tr.id trid=tr.id)
+        .transId.mb-2 ID: #{tr.id}
         .transItemTitleWr
           input.transDate.full(value=tr.date name="date"  placeholder="ДД / HH:MM")
           input.transTitle.full(value=tr.title name="title" placeholder="название")

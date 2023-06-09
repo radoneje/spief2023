@@ -91,6 +91,9 @@ textarea.transUrl{
   width: 100%;
   display: block;
 }
+.transId{
+
+}
 @media all and (max-width:980px)  {
   .transWr{
     padding: 12px;
