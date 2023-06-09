@@ -87,7 +87,7 @@ router.get('/playerCtrl/:id', async function(req, res, next) {
 
     res.render("off", {tr})
 });
-router.get('/trExcel/', async function(req, res, next) {
+router.get('/trExcel', async function(req, res, next) {
     let translations=await req.knex("t_translations").orderBy("date")
     const workbook = new ExcelJS.Workbook();
     const worksheet = workbook.addWorksheet('Трансляции ПМЭФ 2023 на СберТВ');
