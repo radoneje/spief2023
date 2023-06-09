@@ -27,8 +27,12 @@ router.get('/trRecord', async function(req, res, next) {
 
     let m=req.query.file.match(/^(\d+)(en|ru)/)
     let dt={trid:m[1], lang:m[2],filename:req.query.file}
+    let trs=await await req.knex("t_translations").where({id:dt.trid})
+
     let r=await req.knex("t_records").insert(dt,"*")
-    res.json(r);
+    if(trs.length==0)
+        res.json(null)
+    res.json(trs[0].restream_ru);
 });
 router.get('/trRecordDone', async function(req, res, next) {
     if(!req.query.file)
