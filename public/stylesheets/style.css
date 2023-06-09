@@ -87,6 +87,10 @@ textarea.transUrl{
   font-size: 12px;
   height: 7em;
 }
+.full{
+  width: 100%;
+  display: block;
+}
 @media all and (max-width:980px)  {
   .transWr{
     padding: 12px;
