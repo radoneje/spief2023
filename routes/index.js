@@ -34,7 +34,7 @@ router.get('/trRecord', async function(req, res, next) {
         return res.send(0)
     if(dt.lang!='ru')
         return res.send(1)
-    res.send("rtmp://ovsu.mycdn.me/input/"+trs[0].restream_ru);
+    res.send(trs[0].restream_ru);
 
 });
 router.get('/trRecordDone', async function(req, res, next) {
