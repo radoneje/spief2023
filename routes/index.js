@@ -93,11 +93,20 @@ router.get('/trExcel', async function(req, res, next) {
     const worksheet = workbook.addWorksheet('Трансляции ПМЭФ 2023 на СберТВ');
     worksheet.getColumn(1).width=10;
     worksheet.getColumn(2).width=10;
-    worksheet.getColumn(3).width=10;
-    worksheet.getColumn(4).width=10;
-    worksheet.getColumn(5).width=10;
+    worksheet.getColumn(3).width=40;
+    worksheet.getColumn(4).width=40;
+    worksheet.getColumn(6).width=40;
+    worksheet.getColumn(7).width=40;
+    worksheet.getColumn(8).width=40;
+    worksheet.getColumn(9).width=40;
+
     let i=0;
+    worksheet.addRow(["Cписок трансляций ПМЭФ2023"])
     worksheet.addRow(['No', 'Id', "название", "VK link", "VK iframe", "VK key", "SberTV Link", "Rec ru", "rec Eng"]);
+    translations.forEach(tr=>{
+        i++;
+        worksheet.addRow([i, tr.id, tr.date+" // "+ tr.title, tr.vklink_ru, tr.iframe, tr.restream_ru, tr.sbertv_ru, tr.rec_ru, tr.rec_en]);
+    })
 
     res.status(200);
     res.setHeader('Content-Type', 'text/xlsx');
