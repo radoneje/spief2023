@@ -120,7 +120,7 @@ router.get('/trExcel', async function(req, res, next) {
 
     translations.forEach(tr=>{
         i++;
-        worksheet.addRow([i, tr.id, tr.date+" // "+ tr.title, tr.vklink_ru, tr.iframe, tr.restream_ru, tr.sbertv_ru, tr.rec_ru, tr.rec_en]);
+        worksheet.addRow([i, tr.id, tr.date+" \n// "+ tr.title, tr.vklink_ru, tr.iframe, tr.restream_ru, tr.sbertv_ru, tr.rec_ru, tr.rec_en]);
     })
 
     res.status(200);
