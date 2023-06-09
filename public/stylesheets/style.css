@@ -83,6 +83,10 @@ body {
   height: 8em;
   font-size: 0.8em;
 }
+textarea.transUrl{
+  font-size: 12px;
+  height: 7em;
+}
 @media all and (max-width:980px)  {
   .transWr{
     padding: 12px;
