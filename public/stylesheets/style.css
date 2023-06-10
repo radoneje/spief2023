@@ -154,6 +154,11 @@ textarea.transUrl{
   font-size: 12px;
   text-align: center;
 }
+.fullScreenFileWr{
+  margin-top: 24px;
+  height: calc(100% - 200px);
+  background: yellow;
+}
 .fullScreenFileItem{
   display: grid;
   margin-bottom: 8px;
