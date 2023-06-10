@@ -150,9 +150,12 @@ block content
             let r= await fetch("/spief2023/showFiles/"+trid+"/"+lang)
             if(!r.ok)
                 return
-            document.body.innerHTML+=await r.text()
+            let fs=document.createElement("div")
+            fs.classList.add("fullScreen")
+            fs.innerHTML=await r.text()
+           document.body.appendChild(fs)
             document.querySelector(".fullScreenBoxClose").onclick=()=>{
-                document.body.removeChild(document.querySelector(".fullScreen"))
+                document.body.removeChild(fs)
             }
         }
 
