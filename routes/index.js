@@ -151,6 +151,8 @@ router.get('/trSbertvExcel', async function(req, res, next) {
     let i=0;
     worksheet.addRow(["версия от:", moment().format("DD.MM.YYYY HH:mm:ss")])
     worksheet.getRow(1).getCell(1).font={ size: 12, bold: true}
+    worksheet.getRow(1).getCell(2).font={ size: 12, bold: true}
+    worksheet.getRow(1).getCell(2).alignment = {vertical: 'middle', horizontal: 'left', wrapText: true};
     worksheet.addRow(['Номер', 'Полный заголовок для СберТВ', "Короткий заголовок", "Описание", "Обложка (jpg, строго до 200 Кб)", "Код VK (информация от СберТВ)", "Код плеера для СберТВ","Тестовый ключ (сюда можно подать сигнал и проверить поток 24x7)","Ссылка на сайт СберТВ (работает под сертификатом Минцифры)", "Запись ru", "Запись Eng"]);
     for(let i=1; i<=11; i++) {
         worksheet.getRow(2).getCell(i).font={ size: 14, bold: true}
