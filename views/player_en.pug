@@ -1,0 +1,47 @@
+extends layout
+block head
+    link( href="/spief2023/stylesheets/video-js.css" rel="stylesheet" )
+    style.
+        body {
+           max-width:100%;
+            max-height: 100%;
+            overflow: hidden;
+        }
+block content
+    .videoWr#videoWr(status=0)
+        include off
+    script(src="/spief2023/javascripts/video.min.js")
+    script.
+        const trid=!{JSON.stringify(tr.id)}
+        let player;
+        const initPlayer=()=>{
+            if(player)
+                try {
+                    player.dispose();
+                }
+            catch(e){
+                console.warn(e)
+            }
+            player = videojs('player', {
+                preload: 'auto'
+            });
+        }
+        const getStatus=async ()=>{
+            let res=await fetch("/spief2023/status/"+trid)
+            if(res.ok)
+            {
+                let status=await res.json();
+                let videoWr=document.getElementById("videoWr")
+                if(videoWr.getAttribute("status") !=status){
+                    res=await fetch("/spief2023/playerCtrl_en/"+!{tr.id})
+                    videoWr.innerHTML=await res.text();
+                    videoWr.setAttribute("status", status);
+                    if(status>1)
+                        initPlayer()
+                }
+            }
+            setTimeout(getStatus, 10*1000)
+        }
+        setTimeout(getStatus, 1 * 1000)
+
+

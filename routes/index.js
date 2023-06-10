@@ -68,13 +68,19 @@ router.get('/player/:id', async function(req, res, next) {
         return res.sendStatus(404)
     res.render("player", {tr:translations[0]})
 });
+router.get('/player_en/:id', async function(req, res, next) {
+    let translations=await req.knex("t_translations").where({id:req.params.id})
+    if(translations.length==0)
+        return res.sendStatus(404)
+    res.render("player_en", {tr:translations[0]})
+});
 router.get('/status/:id', async function(req, res, next) {
     let translations=await req.knex("t_translations").where({id:req.params.id})
     if(translations.length==0)
         return res.sendStatus(404)
     res.json(translations[0].status)
 });
-router.get('/playerCtrl/:id', async function(req, res, next) {
+router.get('/playerCtrl_en/:id', async function(req, res, next) {
     let translations=await req.knex("t_translations").where({id:req.params.id})
     if(translations.length==0)
         return res.sendStatus(404)
@@ -85,6 +91,20 @@ router.get('/playerCtrl/:id', async function(req, res, next) {
         return res.render("live", {tr})
     if(tr.status==3)
         return res.render("video", {tr})
+
+    res.render("off", {tr})
+});
+router.get('/playerCtrl_en/:id', async function(req, res, next) {
+    let translations=await req.knex("t_translations").where({id:req.params.id})
+    if(translations.length==0)
+        return res.sendStatus(404)
+    let tr=translations[0]
+    if(tr.status==1)
+        return res.render("poster_en", {tr})
+    if(tr.status==2)
+        return res.render("live_en", {tr})
+    if(tr.status==3)
+        return res.render("video_en", {tr})
 
     res.render("off", {tr})
 });
