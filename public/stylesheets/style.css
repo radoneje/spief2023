@@ -152,6 +152,7 @@ textarea.transUrl{
   color: white;
   cursor: pointer;
   font-size: 12px;
+  text-align: center;
 }
 .fullScreenFileItem{
   display: grid;
