@@ -151,7 +151,7 @@ router.get('/trSbertvExcel', async function(req, res, next) {
     worksheet.addRow([""])
     worksheet.getRow(1).getCell(1).font={ size: 16, bold: true}
     worksheet.addRow(['Номер', 'Полный заголовок для СберТВ', "Короткий заголовок", "Описание", "Обложка (jpg, строго до 200 Кб)", "Код VK (информация от СберТВ)", "Код плеера для СберТВ","Тестовый ключ (сюда можно подать сигнал и проверить поток 24x7)","Ссылка на сайт СберТВ (работает под сертификатом Минцифры)", "Запись ru", "Запись Eng"]);
-    for(let i=1; i<11; i++) {
+    for(let i=1; i<=11; i++) {
         worksheet.getRow(2).getCell(i).font={ size: 14, bold: true}
     }
 
@@ -164,8 +164,20 @@ router.get('/trSbertvExcel', async function(req, res, next) {
         row.getCell(5).value="https://static.sber.link/aij2022streams/spief2023/spief2023ru.jpg"
         row.getCell(6).value="\n\n\n СЕРВЕР: rtmp://ovsu.mycdn.me/input/\nКЛЮЧ:"+tr.restream_ru
         +"\n\nКОД IFRAME:\n"+tr.iframe
-        +"\n\nПРЯМАЯ ССЫЛКА:"+tr.vklink_ru
-        +"\n\nПОТОК ОТКРОЕТСЯ АВТОМАТИЧЕСКИ ЗА 5 МИНУТ ДО НАЧАЛА ТРАНСЛЯЦИИ"
+        +"\n\nПРЯМАЯ ССЫЛКА:\n"+tr.vklink_ru
+        +"\n\nПОТОК ОТКРОЕТСЯ АВТОМАТИЧЕСКИ ЗА 5 МИНУТ ДО НАЧАЛА ТРАНСЛЯЦИИ";
+
+        row.getCell(7).value=""
+        if(tr.iframe && tr.iframe.length>10){
+            let match=tr.iframe.match(/src=\"([^"]+)\"/)
+            if(match)
+                row.getCell(7).value=match[1]
+        }
+        row.getCell(8).value="НЕТ"
+        row.getCell(9).value=tr.sbertv_ru
+        row.getCell(10).value=tr.rec_ru
+        row.getCell(11).value=tr.rec_en
+
 
 
         for(let j=6;j<9;j++)
