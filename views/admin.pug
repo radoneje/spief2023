@@ -129,7 +129,7 @@ block content
             }
             setTimeout(updateStatus, 10 * 1000)
         }
-        document.querySelectorAll(".transWr input[name], .transWr select[name], .transWr textarea[name]").forEach(e => {
+        document.querySelectorAll(".adminTransWr input[name], .adminTransWr select[name], .adminTransWr textarea[name]").forEach(e => {
             e.onchange = async () => {
                 let id = e.closest(".transItem").getAttribute("trid");
                 let name = e.getAttribute("name")
