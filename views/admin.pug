@@ -189,6 +189,7 @@ block content
                         return
                     document.body.removeChild(fs)
                     document.querySelector("#tr"+trid).querySelector(".trRecord").innerHTML=await r.text();
+                    initRecBtn();
                 }
             })
         }
@@ -212,8 +213,9 @@ block content
             })
             /*
             .fullScreenBtn.showRecordFile(file=tr.rec_en) Посмотреть
-                                                    .trRecordFile !{tr.rec_en}
+                                                    .trRecordFile {tr.rec_en}
                                                     .fullScreenBtn.downloadRecordFile(file=tr.rec_en) Скачать
             * */
         }
+        initRecBtn();
 
