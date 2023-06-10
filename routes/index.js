@@ -190,10 +190,10 @@ router.get('/trSbertvExcel', async function(req, res, next) {
             let cell=row.getCell(j)
                 cell.alignment = {vertical: 'middle', horizontal: 'center', wrapText: true};
             cell.border = {
-                top: { style: "thick" },
-                left: { style: "thick" },
-                bottom: { style: "thick" },
-                right: { style: "thick" }
+                top: { style: "thin" },//thick
+                left: { style: "thin" },
+                bottom: { style: "thin" },
+                right: { style: "thin" }
             };
         }
 
