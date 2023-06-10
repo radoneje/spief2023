@@ -156,7 +156,8 @@ textarea.transUrl{
 .fullScreenFileItem{
   display: grid;
   margin-bottom: 8px;
-  grid-template-columns: 50px 1fr 50px;
+  grid-template-columns: 88px 1fr 50px;
+  grid-gap: 8px;
 }
 
 @media all and (max-width:980px)  {
