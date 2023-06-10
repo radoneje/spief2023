@@ -182,6 +182,23 @@ router.get('/trSbertvExcel', async function(req, res, next) {
         row.getCell(10).value=tr.rec_ru
 
 
+        for(let j=6;j<=9;j++)
+            row.getCell(j).fill = {
+                type: "pattern",
+                pattern: "solid",
+                fgColor: { argb: "FFFF00" },
+            };
+        for(let j=1;j<=11;j++) {
+            let cell=row.getCell(j)
+            cell.alignment = {vertical: 'middle', horizontal: 'center', wrapText: true};
+            cell.border = {
+                top: { style: "thin" },//thick
+                left: { style: "thin" },
+                bottom: { style: "thin" },
+                right: { style: "thin" }
+            };
+        }
+
         ///EN///////////EN
         i++;
         row=worksheet.addRow()
