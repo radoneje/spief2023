@@ -205,7 +205,9 @@ router.get('/trSbertvExcel', async function(req, res, next) {
         }
         row.getCell(8).value="НЕТ"
         row.getCell(9).value=tr.sbertv_ru
-        row.getCell(10).value=tr.rec_ru
+        //row.getCell(10).value=tr.rec_ru
+        if(tr.rec_ru)
+            row.getCell(10).value ="https://static.sber.link/aij2022streams/spief2023/"+ tr.rec_ru
 
 
         for(let j=6;j<=9;j++)
@@ -248,7 +250,8 @@ router.get('/trSbertvExcel', async function(req, res, next) {
             }
             row.getCell(8).value = "НЕТ"
             row.getCell(9).value = tr.sbertv_en
-            row.getCell(10).value = tr.rec_en
+            if(tr.rec_en)
+                row.getCell(10).value ="https://static.sber.link/aij2022streams/spief2023/"+ tr.rec_en
 
 
             for (let j = 6; j <= 9; j++)
