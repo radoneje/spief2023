@@ -199,8 +199,7 @@ block content
                 btn.onclick=async ()=>{
                     let file=btn.getAttribute("file")
                     let url="/spief2023/showPlayer/"+file
-                    console.log(btn,btn.getAttribute("file"), file, url )
-
+                   // console.log(btn,btn.getAttribute("file"), file, url )
                     let r = await fetch(url)
                     if (!r.ok)
                         return

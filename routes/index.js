@@ -297,7 +297,7 @@ router.get('/showFiles/:trid/:lang', async function(req, res, next) {
 
 router.get('/showPlayer/:file', async function(req, res, next) {
     try {
-            res.render("showPlayer", {file:req.query.file})
+            res.render("showPlayer", {file:req.params.file})
     }
     catch (e){
         console.warn(e)
