@@ -117,6 +117,34 @@ textarea.transUrl{
   grid-template-columns: 1fr 1fr;
   grid-gap: 24px;
 }
+.fullScreen{
+  position: fixed;
+  top:0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #00000088;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fullScreenBox{
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+}
+.fullScreenBoxClose{
+  cursor: pointer;
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  font-size: 10px;
+  padding: 8px 4px;
+}
+
 @media all and (max-width:980px)  {
   .transWr{
     padding: 12px;
