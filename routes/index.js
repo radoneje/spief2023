@@ -159,6 +159,10 @@ router.get('/trSbertvExcel', async function(req, res, next) {
         i++;
         let row=worksheet.addRow([i, tr.id, tr.date+" \n"+ tr.title, tr.vklink_ru, tr.iframe, tr.restream_ru, tr.sbertv_ru, tr.rec_ru, tr.rec_en]);
         row.getCell(2).value=tr.date.replace(" июня", ".06 //").replace(/\-\s?\d\d\:\d\d/, "")+" "+ tr.title;
+        row.getCell(3).value=row.getCell(2).value
+        row.getCell(4).value=""
+        row.getCell(5).value="https://static.sber.link/aij2022streams/spief2023/spief2023ru.jpg"
+
         for(let j=6;j<9;j++)
             row.getCell(j).fill = {
                 type: "pattern",
