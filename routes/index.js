@@ -220,47 +220,47 @@ router.get('/trSbertvExcel', async function(req, res, next) {
         }
 
         ///EN///////////EN
-        i++;
-        row=worksheet.addRow()
-        row.getCell(1).value=i+"\nID:"+tr.id+"EN";
-        if(tr.date_en)
-            row.getCell(2).value=tr.date_en+". "+ tr.title_en;
-        else
-            row.getCell(2).value="ЗДЕСЬ БУДЕТ АНГЛИЙСКАЯ ВЕРСИЯ"
-        row.getCell(3).value=tr.shortName_en
-        row.getCell(4).value=tr.descr_en
-        row.getCell(5).value="https://static.sber.link/aij2022streams/spief2023/spief2023en.jpg"
-        row.getCell(6).value="\nСЕРВЕР: rtmp://ovsu.mycdn.me/input/\nКЛЮЧ: "+tr.restream_en
-            +"\n\nКОД IFRAME:\n"+tr.iframe_en
-            +"\n\nПРЯМАЯ ССЫЛКА:\n"+tr.vklink_en
-            +"\n\nПОТОК ОТКРОЕТСЯ АВТОМАТИЧЕСКИ ЗА 5 МИНУТ ДО НАЧАЛА ТРАНСЛЯЦИИ\n";
-        row.getCell(7).value=""
-        if(tr.iframe_en && tr.iframe_en.length>10){
-            let match=tr.iframe_en.match(/src=\"([^"]+)\"/)
-            if(match)
-                row.getCell(7).value=match[1]
-        }
-        row.getCell(8).value="НЕТ"
-        row.getCell(9).value=tr.sbertv_en
-        row.getCell(10).value=tr.rec_en
+        if(tr.date_en) {
+            i++;
+            row = worksheet.addRow()
+            row.getCell(1).value = i + "\nID:" + tr.id + "EN";
+
+            row.getCell(2).value = tr.date_en + ". " + tr.title_en;
+
+            row.getCell(3).value = tr.shortName_en
+            row.getCell(4).value = tr.descr_en
+            row.getCell(5).value = "https://static.sber.link/aij2022streams/spief2023/spief2023en.jpg"
+            row.getCell(6).value = "\nСЕРВЕР: rtmp://ovsu.mycdn.me/input/\nКЛЮЧ: " + tr.restream_en
+                + "\n\nКОД IFRAME:\n" + tr.iframe_en
+                + "\n\nПРЯМАЯ ССЫЛКА:\n" + tr.vklink_en
+                + "\n\nПОТОК ОТКРОЕТСЯ АВТОМАТИЧЕСКИ ЗА 5 МИНУТ ДО НАЧАЛА ТРАНСЛЯЦИИ\n";
+            row.getCell(7).value = ""
+            if (tr.iframe_en && tr.iframe_en.length > 10) {
+                let match = tr.iframe_en.match(/src=\"([^"]+)\"/)
+                if (match)
+                    row.getCell(7).value = match[1]
+            }
+            row.getCell(8).value = "НЕТ"
+            row.getCell(9).value = tr.sbertv_en
+            row.getCell(10).value = tr.rec_en
 
 
-
-        for(let j=6;j<=9;j++)
-            row.getCell(j).fill = {
-                type: "pattern",
-                pattern: "solid",
-                fgColor: { argb: "FFFF00" },
-            };
-        for(let j=1;j<=11;j++) {
-            let cell=row.getCell(j)
+            for (let j = 6; j <= 9; j++)
+                row.getCell(j).fill = {
+                    type: "pattern",
+                    pattern: "solid",
+                    fgColor: {argb: "FFFF00"},
+                };
+            for (let j = 1; j <= 11; j++) {
+                let cell = row.getCell(j)
                 cell.alignment = {vertical: 'middle', horizontal: 'center', wrapText: true};
-            cell.border = {
-                top: { style: "thin" },//thick
-                left: { style: "thin" },
-                bottom: { style: "thin" },
-                right: { style: "thin" }
-            };
+                cell.border = {
+                    top: {style: "thin"},//thick
+                    left: {style: "thin"},
+                    bottom: {style: "thin"},
+                    right: {style: "thin"}
+                };
+            }
         }
 
 
