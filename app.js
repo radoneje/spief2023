@@ -19,6 +19,7 @@ const bot = new TelegramBot(token, {polling: true});
 const chats=[487692055/*,-681276951*/]
 bot.on('message', (msg) => {
   const chatId = msg.chat.id;
+  console.log(chatId)
   //chatId=487692055
   // send a message to the chat acknowledging receipt of their message
   //bot.sendMessage(chatId, 'Received your message\n');

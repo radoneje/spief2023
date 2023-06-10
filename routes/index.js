@@ -284,6 +284,16 @@ router.get('/trSbertvExcel', async function(req, res, next) {
 
 
 
+router.get('/showFiles/:trid/:lang', async function(req, res, next) {
+    try {
+        let files =await req.knex("")
+            res.render("showFiles", {})
+    }
+    catch (e){
+        console.warn(e)
+        res.sendStatus(500)
+    }
+});
 
 
 
