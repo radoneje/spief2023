@@ -13,14 +13,14 @@ const knex = require('knex')({
   searchPath: ['knex', 'public'],
 });
 
-/*const TelegramBot = require('node-telegram-bot-api');
-const token = 'YOUR_TELEGRAM_BOT_TOKEN';
+const TelegramBot = require('node-telegram-bot-api');
+const token = '6067969380:AAHognfYT5RhESuaK4N6RSfj26EuB8nBDis';
 const bot = new TelegramBot(token, {polling: true});
 bot.on('message', (msg) => {
   const chatId = msg.chat.id;
   // send a message to the chat acknowledging receipt of their message
-  bot.sendMessage(chatId, 'Received your message');
-});*/
+  bot.sendMessage(chatId, 'Received your message\n', chatId);
+});
 
 
 var app = express();
@@ -36,7 +36,7 @@ app.use(cookieParser());
 app.use("/spief2023",express.static(path.join(__dirname, 'public')));
 app.use('/', (req, res,next)=>{
   req.knex=knex;
- // req.bot=bot;
+
   next();
 });
 app.use('/', indexRouter);
