@@ -188,7 +188,7 @@ block content
                     if(!r.ok)
                         return
                     document.body.removeChild(fs)
-                    document.querySelector("#tr"+trid).querySelector(".trRecord").innerHTML=await r.text();
+                    document.querySelector("#tr"+trid).querySelector(".recBox").innerHTML=await r.text();
                     initRecBtn();
                 }
             })
@@ -202,7 +202,7 @@ block content
                 btn.onclick = () => {
                     let a=document.createElement("a")
                     let file=btn.getAttribute("file")
-                    a.setAttribute("download", "download")
+                    a.setAttribute("download", file)
                     a.setAttribute("target", "_blank")
                     a.href="https://static.sber.link/aij2022streams/spief2023/"+file;
                     a.innerHTML=file
