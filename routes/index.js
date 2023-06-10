@@ -162,6 +162,11 @@ router.get('/trSbertvExcel', async function(req, res, next) {
         row.getCell(3).value=row.getCell(2).value
         row.getCell(4).value=""
         row.getCell(5).value="https://static.sber.link/aij2022streams/spief2023/spief2023ru.jpg"
+        row.getCell(6).value="\n\n\n СЕРВЕР: rtmp://ovsu.mycdn.me/input/\nКЛЮЧ:"+tr.restream_ru
+        +"\n\nКОД IFRAME:\n"+tr.iframe
+        +"\n\nПРЯМАЯ ССЫЛКА:"+tr.vklink_ru
+        +"\n\nПОТОК ОТКРОЕТСЯ АВТОМАТИЧЕСКИ ЗА 5 МИНУТ ДО НАЧАЛА ТРАНСЛЯЦИИ"
+
 
         for(let j=6;j<9;j++)
             row.getCell(j).fill = {
