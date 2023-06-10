@@ -14,7 +14,7 @@ block content
   .mt-2.adminTransWr
 
     each tr in translations
-      .transItem(id="tr"+tr.id trid=tr.id)
+      .transItem.recWr(id="tr"+tr.id trid=tr.id)
         .transItemLang
           .transId.mb-2 ID: #{tr.id}
           .transItemTitleWr
@@ -55,13 +55,11 @@ block content
             div
               label Ссылка на СберТВ
               input.transUrl(value=tr.sbertv_ru name="sbertv_ru"  placeholder="Вставьте ссылку")
-          .transItemStatusW.mt-2.recWr
+          .transItemStatusW.mt-2
               div
                 h6 запись ru
                 .btn.btn-sm.btn-success.mt-2 Добавить запись
-              div
-                h6 запись en
-                .btn.btn-sm.btn-success.mt-2 Add record
+
         .transItemLang BLA-BLA
   script.
     const updateStatus=async()=>{
