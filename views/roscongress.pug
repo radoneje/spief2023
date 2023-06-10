@@ -20,10 +20,10 @@ block content
           .transItemStatusW.mt-2
             .mt-2
               label русский
-              input.transTitle(value="rtmp://rtmp.onevent.online/live/"+tr.id+"ru" readonly)
+              input.transTitle(value="rtmp://rtmp"+(((tr.id % 2)==0)?1:2)+".onevent.online/live/"+tr.id+"ru" readonly)
             .mt-2
               label английский
-              input.transTitle(value="rtmp://rtmp.onevent.online/live/"+tr.id+"en" readonly)
+              input.transTitle(value="rtmp://rtmp"+(((tr.id % 2)==0)?1:2)+".onevent.online/live/"+tr.id+"en" readonly)
 
   script.
 
