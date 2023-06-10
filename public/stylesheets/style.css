@@ -133,7 +133,7 @@ textarea.transUrl{
   padding: 24px;
   border-radius: 12px;
   height: 80vh;
-  overflow-y: auto;
+
   position: relative;
   width: 600px;
 }
@@ -156,8 +156,8 @@ textarea.transUrl{
 }
 .fullScreenFileWr{
   margin-top: 24px;
-  height: calc(100% - 200px);
-  background: yellow;
+  height: calc(100% - 330px);
+  overflow-y: auto;
 }
 .fullScreenFileItem{
   display: grid;
