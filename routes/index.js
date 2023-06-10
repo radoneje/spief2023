@@ -158,7 +158,7 @@ router.get('/trSbertvExcel', async function(req, res, next) {
     translations.forEach(tr=>{
         i++;
         let row=worksheet.addRow([i, tr.id, tr.date+" \n"+ tr.title, tr.vklink_ru, tr.iframe, tr.restream_ru, tr.sbertv_ru, tr.rec_ru, tr.rec_en]);
-
+        row.getCell(2).value=tr.date.replace(" июня", ".06 //")+" "+ tr.title;
         for(let j=6;j<9;j++)
             row.getCell(j).fill = {
                 type: "pattern",
