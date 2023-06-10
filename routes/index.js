@@ -286,7 +286,7 @@ router.get('/trSbertvExcel', async function(req, res, next) {
 
 router.get('/showFiles/:trid/:lang', async function(req, res, next) {
     try {
-        let files =await req.knex("t_records").where({trid:req.params.trid,lang:req.params.lang })
+        let files =await req.knex("t_records").where({trid:req.params.trid,lang:req.params.lang }).orderBy("id","desc")
             res.render("showFiles", {files})
     }
     catch (e){
