@@ -41,7 +41,7 @@ app.use('/', (req, res,next)=>{
   req.messageToBot=async (text)=>{
     for(let c of chats){
       console.log(text)
-      await bot.sendMessage(c, text, {parse_mode: 'HTML'})
+      await bot.sendMessage(c, text, {parse_mode: 'HTML', link_preview:false})
     }
   }
   next();
