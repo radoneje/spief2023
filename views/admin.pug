@@ -18,6 +18,8 @@ block content
         .transItemTitleWr
           input.transDate.full(value=tr.date name="date"  placeholder="ДД / HH:MM")
           input.transTitle.full(value=tr.title name="title" placeholder="название")
+          input.transTitle.full(value=tr.shortName name="shortName" placeholder="короткое название")
+          textarea.transUrl(value=tr.descr name="descr"  placeholder="описание")
         .adminCol.mt-2
           .adminRow
             .transItemStatusW.mt-2
