@@ -133,8 +133,6 @@ router.get('/trExcel', async function(req, res, next) {
     res.end()
 });
 
-
-
 router.get('/trSbertvExcel', async function(req, res, next) {
     let translations=await req.knex("t_translations").orderBy("date")
     const workbook = new ExcelJS.Workbook();
