@@ -16,7 +16,7 @@ const knex = require('knex')({
 const TelegramBot = require('node-telegram-bot-api');
 const token = '6067969380:AAHognfYT5RhESuaK4N6RSfj26EuB8nBDis';
 const bot = new TelegramBot(token, {polling: true});
-const chats=[487692055/*,-681276951*/]
+const chats=[487692055,/*Паша*/192742729/*,-681276951*/]
 bot.on('message', (msg) => {
   const chatId = msg.chat.id;
   console.log(chatId)
