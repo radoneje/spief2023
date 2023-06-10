@@ -185,7 +185,10 @@ router.get('/trSbertvExcel', async function(req, res, next) {
         ///EN///////////EN
         row=worksheet.addRow()
         row.getCell(1).value=i+"\nID:"+tr.id+"EN";
-        row.getCell(2).value=tr.date_en+". "+ tr.title_en;
+        if(tr.date_en)
+            row.getCell(2).value=tr.date_en+". "+ tr.title_en;
+        else
+            row.getCell(2).value="ЗДЕСЬ БУДЕТ АНГЛИЙСКАЯ ВЕРСИЯ"
         row.getCell(3).value=tr.shortName_en
         row.getCell(4).value=tr.descr_en
         row.getCell(5).value="https://static.sber.link/aij2022streams/spief2023/spief2023en.jpg"
