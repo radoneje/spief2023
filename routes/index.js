@@ -143,7 +143,7 @@ router.get('/trSbertvExcel', async function(req, res, next) {
             worksheet.getColumn(1).width=10;
         else
             worksheet.getColumn(i).width=60;
-        worksheet.getColumn(i).alignment = { vertical: 'center', horizontal: 'center', wrapText: true };
+        worksheet.getColumn(i).alignment = { vertical: 'middle', horizontal: 'center', wrapText: true };
     }
 
 
@@ -165,7 +165,7 @@ router.get('/trSbertvExcel', async function(req, res, next) {
         row.getCell(6).value="\n\n\n СЕРВЕР: rtmp://ovsu.mycdn.me/input/\nКЛЮЧ:"+tr.restream_ru
         +"\n\nКОД IFRAME:\n"+tr.iframe
         +"\n\nПРЯМАЯ ССЫЛКА:\n"+tr.vklink_ru
-        +"\n\nПОТОК ОТКРОЕТСЯ АВТОМАТИЧЕСКИ ЗА 5 МИНУТ ДО НАЧАЛА ТРАНСЛЯЦИИ";
+        +"\n\nПОТОК ОТКРОЕТСЯ АВТОМАТИЧЕСКИ ЗА 5 МИНУТ ДО НАЧАЛА ТРАНСЛЯЦИИ\n\n";
 
         row.getCell(7).value=""
         if(tr.iframe && tr.iframe.length>10){
@@ -187,7 +187,7 @@ router.get('/trSbertvExcel', async function(req, res, next) {
                 fgColor: { argb: "FFFF00" },
             };
         for(let j=1;j<=11;j++)
-            row.getCell(j).alignment = { vertical: 'center', horizontal: 'center', wrapText: true };
+            row.getCell(j).alignment = { vertical: 'middle', horizontal: 'center', wrapText: true };
 
 
     })
