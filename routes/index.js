@@ -129,6 +129,7 @@ router.get('/trExcel', async function(req, res, next) {
     worksheet.getColumn(9).width=40;
     worksheet.getColumn(10).width=40;
     worksheet.getColumn(11).width=40;
+    worksheet.getColumn(12).width=40;
 
     worksheet.getColumn(3).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
     worksheet.getColumn(4).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
@@ -139,11 +140,12 @@ router.get('/trExcel', async function(req, res, next) {
     worksheet.getColumn(9).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
     worksheet.getColumn(10).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
     worksheet.getColumn(11).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
+    worksheet.getColumn(12).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
 
     let i=0;
     worksheet.addRow(["Cписок трансляций ПМЭФ 2023"])
     worksheet.getRow(1).getCell(1).font={ size: 16, bold: true}
-    worksheet.addRow(['No', 'Id', "название", "VK link ру ","VK link en", "VK iframe", "VK key", "SberTV рус", "SberTV en",  "Запись ru", "Запись Eng"]);
+    worksheet.addRow(['No', 'Id', "название", "VK link ру ","VK link en", "VK iframe", "VK key ru","VK key en", "SberTV рус", "SberTV en",  "Запись ru", "Запись Eng"]);
     for(let i=1; i<11; i++) {
         worksheet.getRow(2).getCell(i).font={ size: 14, bold: true}
     }
@@ -158,6 +160,7 @@ router.get('/trExcel', async function(req, res, next) {
             tr.vklink_en,
             tr.iframe,
             tr.restream_ru,
+            tr.restream_en,
             tr.sbertv_ru,
             tr.sbertv_en,
             "https://static.sber.link/aij2022streams/spief2023/"+tr.rec_ru,
