@@ -183,6 +183,7 @@ router.get('/trSbertvExcel', async function(req, res, next) {
 
 
         ///EN///////////EN
+        i++;
         row=worksheet.addRow()
         row.getCell(1).value=i+"\nID:"+tr.id+"EN";
         if(tr.date_en)
