@@ -37,7 +37,7 @@ router.get('/trRecord', async function(req, res, next) {
     if(dt.lang!='ru')
         return res.send("rtmp://ovsu.mycdn.me/input/"+trs[0].restream_en);
 
-    await req.messageToBot("Началось: id:"+trs[0].id+"\n"+trs[0].title+"<a href='"+trs[0].vklink_ru+"'>смотреть ВК</a>");
+    await req.messageToBot("Началось: id:"+trs[0].id+"\n"+trs[0].title+"\n<a href='"+trs[0].vklink_ru+"'>смотреть ВК</a>");
     res.send("rtmp://ovsu.mycdn.me/input/"+trs[0].restream_ru);
 
 });
