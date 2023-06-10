@@ -38,7 +38,7 @@ block content
                     .transItemStatusW.mt-2
                         div
                             label Poster
-                            input.transUrl(value=tr.poster name="poster"  placeholder="Poster")
+                            input.transUrl(value=tr.poster name="poster"  placeholder="Постер")
                     .transItemStatusW.mt-2
                         div
                             label ВК Ссылка на видео (поделиться->экспортировать->Прямая ссылка)
@@ -80,6 +80,33 @@ block content
                         .adminIframe
                             .videoWr
                                 iframe(src="/spief2023/player/" + tr.id width="1289" height="720" allowfullscreen)
+                    .transItemStatusW.mt-2
+                        div
+                            label Poster
+                            input.transUrl(value=tr.poster_en name="poster_en"  placeholder="Poster")
+                    .transItemStatusW.mt-2
+                        div
+                            label ВК Link to Video (поделиться->экспортировать->Прямая ссылка)
+                            input.transUrl(value=tr.vklink_en name="vklink_en"  placeholder="Paste Link" )
+                    .transItemStatusW.mt-2
+                        div
+                            label ВК Настройки трансляции -> KEY
+                            input.transUrl(value=tr.restream_en name="restream_en"  placeholder="Paste  key")
+                    .transItemStatusW.mt-2
+                        div
+                            label VK IFRAME (поделиться->экспортировать->код для вставки)
+                            textarea.transUrl(value=tr.iframe_en name="iframe_en"  placeholder="Paste  Iframe code")
+                    .transItemStatusW.mt-2
+                        div
+                            label Link to  SberTv
+                            input.transUrl(value=tr.sbertv_en name="sbertv_en"  placeholder="Paste link")
+                    .transItemStatusW.mt-2
+                        div
+                            h6 En record
+                            .btn.btn-sm.btn-success.mt-2 ADD Record
+
+
+
     script.
         const updateStatus = async () => {
             let res = await fetch("/spief2023/trStatusAll")
