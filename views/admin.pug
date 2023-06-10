@@ -58,6 +58,12 @@ block content
                     .transItemStatusW.mt-2
                         div
                             h6 запись ru
+                            .mt-2.recBox
+                                .fullScreenFileItem.trRecord
+                                    if tr.rec_ru
+                                        .fullScreenBtn Посмотреть
+                                        div !{tr.rec_ru}
+                                        .fullScreenBtn Скачать
                             .btn.btn-sm.btn-success.mt-2(onclick="showFiles("+tr.id+",'ru')") Добавить запись
 
                 .transItemLang
@@ -103,6 +109,13 @@ block content
                     .transItemStatusW.mt-2
                         div
                             h6 En record
+                            .mt-2.recBox
+                                .fullScreenFileItem.trRecord
+                                    if tr.rec_en
+                                        .fullScreenBtn Посмотреть
+                                        div !{tr.rec_en}
+                                        .fullScreenBtn Скачать
+
                             .btn.btn-sm.btn-success.mt-2 ADD Record
 
 
