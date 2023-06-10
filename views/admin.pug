@@ -162,8 +162,8 @@ block content
                     let item=e.closest(".fullScreenFileItem")
                     let player=document.querySelector("#fullScreenVideo")
                     player.setAttribute("fileid", item.getAttribute("fileid"))
-                    player.setAttribute("filename", item.getAttribute("filename"))
-                    player.setAttribute("src","https://static.sber.link/aij2022streams/spief2023/"+ item.getAttribute("filename"))
+                    player.setAttribute("file", item.getAttribute("file"))
+                    player.setAttribute("src","https://static.sber.link/aij2022streams/spief2023/"+ item.getAttribute("file"))
                     player.play();
                 }
             })
