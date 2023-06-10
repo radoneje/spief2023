@@ -36,16 +36,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use("/spief2023/javascripts/", (req, res, next)=>{
-  res.setHeader('Cache-Control', 'public, max-age=6000'); // 4 days
-  res.setHeader('Expires', new Date(Date.now() + 6000000).toUTCString());
-  next();
-})
-app.use("/spief2023/stylesheets/", (req, res, next)=>{
-  res.setHeader('Cache-Control', 'public, max-age=6000'); // 4 days
-  res.setHeader('Expires', new Date(Date.now() + 6000000).toUTCString());
-  next();
-})
+
 app.use("/spief2023",express.static(path.join(__dirname, 'public')));
 app.use('/', (req, res,next)=>{
   req.knex=knex;

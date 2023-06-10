@@ -167,8 +167,10 @@ block content
             fs.classList.add("fullScreen")
             fs.innerHTML=await r.text()
             document.body.appendChild(fs)
+            document.body.style.overflow="hidden"
             document.querySelector(".fullScreenBoxClose").onclick=()=>{
                 document.body.removeChild(fs)
+                document.body.style.overflow=null
             }
             document.querySelectorAll(".fullScreenPlayBtn").forEach(e=>{
                 e.onclick=()=>{
@@ -188,6 +190,7 @@ block content
                     if(!r.ok)
                         return
                     document.body.removeChild(fs)
+                    document.body.style.overflow=null
                     document.querySelector("#tr"+trid).querySelector(".recBox").innerHTML=await r.text();
                     initRecBtn();
                 }
@@ -207,8 +210,10 @@ block content
                     fs.classList.add("fullScreen")
                     fs.innerHTML = await r.text()
                     document.body.appendChild(fs)
+                    document.body.style.overflow="hidden"
                     document.querySelector(".fullScreenBoxClose").onclick = () => {
                         document.body.removeChild(fs)
+                        document.body.style.overflow=null
                     }
                 }
             })
@@ -227,11 +232,6 @@ block content
 
                 }
             })
-            /*
-            .fullScreenBtn.showRecordFile(file=tr.rec_en) Посмотреть
-                                                    .trRecordFile {tr.rec_en}
-                                                    .fullScreenBtn.downloadRecordFile(file=tr.rec_en) Скачать
-            * */
         }
         initRecBtn();
 
