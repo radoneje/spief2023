@@ -163,8 +163,8 @@ router.get('/trExcel', async function(req, res, next) {
             tr.restream_en,
             tr.sbertv_ru,
             tr.sbertv_en,
-            "https://static.sber.link/aij2022streams/spief2023/"+tr.rec_ru,
-            "https://static.sber.link/aij2022streams/spief2023/"+tr.rec_en
+            tr.rec_ru?("https://static.sber.link/aij2022streams/spief2023/"+tr.rec_ru):"",
+            tr.rec_en?("https://static.sber.link/aij2022streams/spief2023/"+tr.rec_en):""
         ]);
     })
 
