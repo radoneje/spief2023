@@ -60,7 +60,26 @@ block content
                 h6 запись ru
                 .btn.btn-sm.btn-success.mt-2 Добавить запись
 
-        .transItemLang BLA-BLA
+        .transItemLang
+          .transId.mb-2 ID: #{tr.id}en
+            .transItemTitleWr
+              input.transDate.full(value=tr.date_en name="date_en"  placeholder="Date")
+              input.transTitle.full(value=tr.title_en name="title_en" placeholder="Title")
+              input.transTitle.full(value=tr.shortName_en name="shortName_en" placeholder="Short Title")
+              textarea.transUrl(value=tr.descr_en name="descr_en"  placeholder="Description")
+            .adminCol.mt-2
+              .adminRow
+                //.transItemStatusW.mt-2
+                  select.transItemStatus(name="status" value=tr.status)
+                    option(value="0"  selected=tr.status == 0) Выключена
+                    option(value="1"  selected=tr.status == 1) Постер
+                    option(value="2" selected=tr.status == 2) Эфир
+                    option(value="3" selected=tr.status == 3) Запись
+                //.transItemStatusW.mt-2
+                  input.transDate(value=tr.key name="key"  placeholder="CDN KEY")
+              .adminIframe
+                .videoWr
+                  iframe(src="/spief2023/player/" + tr.id width="1289" height="720" allowfullscreen)
   script.
     const updateStatus=async()=>{
       let res = await fetch("/spief2023/trStatusAll")
