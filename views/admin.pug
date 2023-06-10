@@ -203,9 +203,10 @@ block content
                     let a=document.createElement("a")
                     let file=btn.getAttribute("file")
                     a.setAttribute("download", file)
+                    a.setAttribute("target", "_blank")
                     a.href="https://static.sber.link/aij2022streams/spief2023/"+file;
-                    a.style.display="none"
-                    document.body.appendChild(a)
+                    //a.style.display="none"
+                    //document.body.appendChild(a)
                     a.click();
                     setTimeout(()=>{document.body.removeChild(a)},100)
 
