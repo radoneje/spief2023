@@ -49,7 +49,6 @@ router.get('/trRecordDone', async function(req, res, next) {
         let trs = await await req.knex("t_translations").where({id: r.trid})
         await req.messageToBot("Окончилось: id:" + trs[0].id + "\n" + trs[0].title + "<a href='" + trs[0].vklink_ru + "'>смотреть ВК</a>");
     }
-
     res.json(r);
 });
 
