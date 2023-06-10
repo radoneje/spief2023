@@ -41,7 +41,12 @@ app.use('/', (req, res,next)=>{
   req.knex=knex;
   req.messageToBot=async (text)=>{
     for(let c of chats){
-      await bot.sendMessage(c, text, {parse_mode: 'HTML', disable_web_page_preview:true})
+      try {
+        await bot.sendMessage(c, text, {parse_mode: 'HTML', disable_web_page_preview: true})
+      }
+      catch (e){
+        console.log("message not send");
+      }
     }
   }
   next();
