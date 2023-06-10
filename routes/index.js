@@ -45,10 +45,10 @@ router.get('/trRecordDone', async function(req, res, next) {
     if(!req.query.file)
         return res.json(404)
     let r=await req.knex("t_records").update({done:true, doneDate:new Date()},"*").where({filename:req.query.file})
-   // if(req.query.file.match(/^\d+ru/)) {
+   if(req.query.file.match(/^\d+ru/)) {
         let trs = await await req.knex("t_translations").where({id: r[0].trid})
         await req.messageToBot("Окончилось: id:" + trs[0].id + "\n" + trs[0].title + "\n\n<a href='" + trs[0].vklink_ru + "'>смотреть ВК</a>");
-   // }
+    }
     res.json(r);
 });
 
