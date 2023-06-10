@@ -36,7 +36,7 @@ block content
                     res=await fetch("/spief2023/playerCtrl/"+!{tr.id})
                     videoWr.innerHTML=await res.text();
                     videoWr.setAttribute("status", status);
-                    if(status>1)
+                    if(status>2)
                         initPlayer()
                 }
             }
