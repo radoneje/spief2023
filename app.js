@@ -15,7 +15,7 @@ const knex = require('knex')({
 
 const TelegramBot = require('node-telegram-bot-api');
 const token = '6067969380:AAHognfYT5RhESuaK4N6RSfj26EuB8nBDis';
-const bot = new TelegramBot(token, {polling: false});
+const bot = new TelegramBot(token, {polling: true});
 bot.on('message', (msg) => {
   const chatId = msg.chat.id;
   // send a message to the chat acknowledging receipt of their message
