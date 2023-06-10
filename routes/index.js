@@ -127,6 +127,8 @@ router.get('/trExcel', async function(req, res, next) {
     worksheet.getColumn(7).width=40;
     worksheet.getColumn(8).width=40;
     worksheet.getColumn(9).width=40;
+    worksheet.getColumn(10).width=40;
+    worksheet.getColumn(11).width=40;
 
     worksheet.getColumn(3).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
     worksheet.getColumn(4).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
@@ -135,19 +137,32 @@ router.get('/trExcel', async function(req, res, next) {
     worksheet.getColumn(7).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
     worksheet.getColumn(8).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
     worksheet.getColumn(9).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
-
+    worksheet.getColumn(10).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
+    worksheet.getColumn(11).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
 
     let i=0;
     worksheet.addRow(["Cписок трансляций ПМЭФ 2023"])
     worksheet.getRow(1).getCell(1).font={ size: 16, bold: true}
-    worksheet.addRow(['No', 'Id', "название", "VK link", "VK iframe", "VK key", "SberTV Link", "Запись ru", "Запись Eng"]);
+    worksheet.addRow(['No', 'Id', "название", "VK link ру ","VK link en", "VK iframe", "VK key", "SberTV рус", "SberTV en",  "Запись ru", "Запись Eng"]);
     for(let i=1; i<11; i++) {
         worksheet.getRow(2).getCell(i).font={ size: 14, bold: true}
     }
 
     translations.forEach(tr=>{
         i++;
-        worksheet.addRow([i, tr.id, tr.date+" \n"+ tr.title, tr.vklink_ru, tr.iframe, tr.restream_ru, tr.sbertv_ru, tr.rec_ru, tr.rec_en]);
+        worksheet.addRow([
+            i,
+            tr.id,
+            tr.date+" \n"+ tr.title,
+            tr.vklink_ru,
+            tr.vklink_en,
+            tr.iframe,
+            tr.restream_ru,
+            tr.sbertv_ru,
+            tr.sbertv_en,
+            "https://static.sber.link/aij2022streams/spief2023/"+tr.rec_ru,
+            "https://static.sber.link/aij2022streams/spief2023/"+tr.rec_en
+        ]);
     })
 
     res.status(200);
