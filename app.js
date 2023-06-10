@@ -40,7 +40,7 @@ app.use('/', (req, res,next)=>{
   req.knex=knex;
   req.messageToBot=async (text)=>{
     for(let c of chats){
-      await bot.sendMessage(c, text, {parse_mode:"HTML"})
+      await bot.sendMessage(c, text, {parse_mode: 'HTML'})
     }
   }
   next();
