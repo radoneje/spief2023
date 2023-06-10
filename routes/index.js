@@ -180,12 +180,16 @@ router.get('/trSbertvExcel', async function(req, res, next) {
 
 
 
-        for(let j=6;j<9;j++)
+        for(let j=6;j<=9;j++)
             row.getCell(j).fill = {
                 type: "pattern",
                 pattern: "solid",
                 fgColor: { argb: "FFFF00" },
             };
+        for(let j=1;j<=11;j++)
+            row.getCell(j).alignment = { vertical: 'center', horizontal: 'center', wrapText: true };
+
+
     })
 
     res.status(200);
