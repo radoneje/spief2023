@@ -146,6 +146,18 @@ textarea.transUrl{
   padding: 8px 4px;
   z-index: 100;
 }
+.fullScreenBtn{
+  padding: 4px 2px;
+  background: green;
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+}
+.fullScreenFileItem{
+  display: grid;
+  margin-bottom: 8px;
+  grid-template-columns: 50px 1fr 50px;
+}
 
 @media all and (max-width:980px)  {
   .transWr{
