@@ -153,14 +153,16 @@ router.get('/trSbertvExcel', async function(req, res, next) {
     worksheet.getRow(1).getCell(1).font={ size: 12, bold: true}
     worksheet.getRow(1).getCell(2).font={ size: 12, bold: true}
     worksheet.getRow(1).getCell(2).alignment = {vertical: 'middle', horizontal: 'left', wrapText: true};
-    worksheet.addRow(['Номер', 'Полный заголовок для СберТВ', "Короткий заголовок", "Описание", "Обложка (jpg, строго до 200 Кб)", "Код VK (информация от СберТВ)", "Код плеера для СберТВ","Тестовый ключ (сюда можно подать сигнал и проверить поток 24x7)","Ссылка на сайт СберТВ (работает под сертификатом Минцифры)", "Запись ru", "Запись Eng"]);
+    worksheet.addRow(['Номер', 'Полный заголовок для СберТВ', "Короткий заголовок", "Описание", "Обложка (jpg, строго до 200 Кб)", "Код VK (информация от СберТВ)", "Код плеера для СберТВ","Тестовый ключ (сюда можно подать сигнал и проверить поток 24x7)","Ссылка на сайт СберТВ (работает под сертификатом Минцифры)", "Запись"]);
     for(let i=1; i<=11; i++) {
         worksheet.getRow(2).getCell(i).font={ size: 14, bold: true}
     }
 
     translations.forEach(tr=>{
         i++;
-        let row=worksheet.addRow([i, tr.id, tr.date+" \n"+ tr.title, tr.vklink_ru, tr.iframe, tr.restream_ru, tr.sbertv_ru, tr.rec_ru, tr.rec_en]);
+        //let row=worksheet.addRow([i, tr.id, tr.date+" \n"+ tr.title, tr.vklink_ru, tr.iframe, tr.restream_ru, tr.sbertv_ru, tr.rec_ru, tr.rec_en]);
+        let row=worksheet.addRow()
+        row.getCell(1).value=i+"\nID:"+tr.id+"ru";
         row.getCell(2).value=tr.date.replace(" июня", ".06 //").replace(/\-\s?\d\d\:\d\d/, "")+". "+ tr.title;
         row.getCell(3).value=tr.shortName
         row.getCell(4).value=tr.descr
@@ -169,7 +171,6 @@ router.get('/trSbertvExcel', async function(req, res, next) {
         +"\n\nКОД IFRAME:\n"+tr.iframe
         +"\n\nПРЯМАЯ ССЫЛКА:\n"+tr.vklink_ru
         +"\n\nПОТОК ОТКРОЕТСЯ АВТОМАТИЧЕСКИ ЗА 5 МИНУТ ДО НАЧАЛА ТРАНСЛЯЦИИ\n";
-
         row.getCell(7).value=""
         if(tr.iframe && tr.iframe.length>10){
             let match=tr.iframe.match(/src=\"([^"]+)\"/)
@@ -179,7 +180,28 @@ router.get('/trSbertvExcel', async function(req, res, next) {
         row.getCell(8).value="НЕТ"
         row.getCell(9).value=tr.sbertv_ru
         row.getCell(10).value=tr.rec_ru
-        row.getCell(11).value=tr.rec_en
+
+
+        ///EN///////////EN
+        row=worksheet.addRow()
+        row.getCell(1).value=i+"\nID:"+tr.id+"EN";
+        row.getCell(2).value=tr.date_en+". "+ tr.title_en;
+        row.getCell(3).value=tr.shortName_en
+        row.getCell(4).value=tr.descr_en
+        row.getCell(5).value="https://static.sber.link/aij2022streams/spief2023/spief2023en.jpg"
+        row.getCell(6).value="\nСЕРВЕР: rtmp://ovsu.mycdn.me/input/\nКЛЮЧ: "+tr.restream_en
+            +"\n\nКОД IFRAME:\n"+tr.iframe_en
+            +"\n\nПРЯМАЯ ССЫЛКА:\n"+tr.vklink_en
+            +"\n\nПОТОК ОТКРОЕТСЯ АВТОМАТИЧЕСКИ ЗА 5 МИНУТ ДО НАЧАЛА ТРАНСЛЯЦИИ\n";
+        row.getCell(7).value=""
+        if(tr.iframe_en && tr.iframe_en.length>10){
+            let match=tr.iframe_en.match(/src=\"([^"]+)\"/)
+            if(match)
+                row.getCell(7).value=match[1]
+        }
+        row.getCell(8).value="НЕТ"
+        row.getCell(9).value=tr.sbertv_en
+        row.getCell(10).value=tr.rec_en
 
 
 
