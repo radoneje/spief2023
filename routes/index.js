@@ -294,6 +294,19 @@ router.get('/showFiles/:trid/:lang', async function(req, res, next) {
         res.sendStatus(500)
     }
 });
+router.get('/setTrRec/:trid/:lang/:file', async function(req, res, next) {
+    try {
+        let dt={}
+        dt["rec_"+req.params.land]=req.params.file
+        let r =await req.knex("t_translations").update(dt, "*").where({id:req.params.trid})
+        res.render("trRecord", {file:r[0]["rec_"+req.params.land]})
+    }
+    catch (e){
+        console.warn(e)
+        res.sendStatus(500)
+    }
+});
+
 
 
 

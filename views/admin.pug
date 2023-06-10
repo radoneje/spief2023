@@ -167,5 +167,15 @@ block content
                     player.play();
                 }
             })
+            document.querySelectorAll(".fullScreenSetBtn").forEach(e => {
+                e.onclick = async () => {
+                    let item=e.closest(".fullScreenFileItem")
+                    let rec=item.getAttribute("file")
+                    let r= await fetch("/spief2023/setTrRec/"+trid+"/"+lang+"/"+rec)
+                    if(!r.ok)
+                        return
+                    document.body.removeChild(fs)
+                }
+            })
         }
 
