@@ -36,6 +36,8 @@ router.get('/trRecord', async function(req, res, next) {
         return res.send(null)
     if(dt.lang!='ru')
         return res.send("rtmp://ovsu.mycdn.me/input/"+trs[0].restream_en);
+
+    await req.messageToBot("Началось: id:"+trs[0].id+"\n"+trs[0].title+"<a href='"+trs[0].vklink_ru+"'>смотреть ВК</a>");
     res.send("rtmp://ovsu.mycdn.me/input/"+trs[0].restream_ru);
 
 });
@@ -43,6 +45,11 @@ router.get('/trRecordDone', async function(req, res, next) {
     if(!req.query.file)
         return res.json(404)
     let r=await req.knex("t_records").update({done:true, doneDate:new Date()},"*").where({filename:req.query.file})
+    if(req.query.file.match(/^\d+ru/)) {
+        let trs = await await req.knex("t_translations").where({id: r.trid})
+        await req.messageToBot("Окончилось: id:" + trs[0].id + "\n" + trs[0].title + "<a href='" + trs[0].vklink_ru + "'>смотреть ВК</a>");
+    }
+
     res.json(r);
 });
 

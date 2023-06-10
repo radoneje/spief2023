@@ -16,11 +16,12 @@ const knex = require('knex')({
 const TelegramBot = require('node-telegram-bot-api');
 const token = '6067969380:AAHognfYT5RhESuaK4N6RSfj26EuB8nBDis';
 const bot = new TelegramBot(token, {polling: true});
+const chats=[487692055,-681276951]
 bot.on('message', (msg) => {
   const chatId = msg.chat.id;
-  console.warn(msg.chat.id)
+  //chatId=487692055
   // send a message to the chat acknowledging receipt of their message
-  //bot.sendMessage(chatId, 'Received your message\n', chatId);
+  //bot.sendMessage(chatId, 'Received your message\n');
 });
 
 
@@ -37,7 +38,11 @@ app.use(cookieParser());
 app.use("/spief2023",express.static(path.join(__dirname, 'public')));
 app.use('/', (req, res,next)=>{
   req.knex=knex;
-
+  req.messageToBot=async (text)=>{
+    for(let c of chats){
+      await bot.sendMessage(c, text, {parse_mode:"html"})
+    }
+  }
   next();
 });
 app.use('/', indexRouter);
