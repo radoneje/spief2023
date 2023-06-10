@@ -9,9 +9,22 @@ body {
   grid-template-columns: 1fr 1fr;
   grid-gap: 24px;
 }
+.adminTransWr{
+  padding: 64px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 24px;
+}
 .transItem{
   border: 1px solid gray;
   border-radius: 8px;
+  padding: 8px;
+  background: #eeeeee;
+}
+.adminTransWr .transItem{
+  background: #FFFFFF;
+}
+.transItemLang{
   padding: 8px;
   background: #eeeeee;
 }
