@@ -58,7 +58,7 @@ block content
                     .transItemStatusW.mt-2
                         div
                             h6 запись ru
-                            .mt-2.recBox
+                            .mt-2.recBox(lang="ru")
                                 .fullScreenFileItem.trRecord
                                     if tr.rec_ru
                                         .fullScreenBtn.showRecordFile(file=tr.rec_ru) Посмотреть
@@ -109,7 +109,7 @@ block content
                     .transItemStatusW.mt-2
                         div
                             h6 En record
-                            .mt-2.recBox
+                            .mt-2.recBox(lang="en")
                                 .fullScreenFileItem.trRecord
                                     if tr.rec_en
                                         .fullScreenBtn.showRecordFile(file=tr.rec_en) Посмотреть
@@ -191,7 +191,7 @@ block content
                         return
                     document.body.removeChild(fs)
                     document.body.style.overflow=null
-                    document.querySelector("#tr"+trid).querySelector(".recBox").innerHTML=await r.text();
+                    document.querySelector("#tr"+trid).querySelector(".recBox[lang='"+lang+"']").innerHTML=await r.text();
                     initRecBtn();
                 }
             })
