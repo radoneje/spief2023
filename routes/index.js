@@ -294,6 +294,16 @@ router.get('/showFiles/:trid/:lang', async function(req, res, next) {
         res.sendStatus(500)
     }
 });
+
+router.get('/showPlayer/:file', async function(req, res, next) {
+    try {
+            res.render("showPlayer", {file:req.query.file})
+    }
+    catch (e){
+        console.warn(e)
+        res.sendStatus(500)
+    }
+});
 router.get('/setTrRec/:trid/:lang/:file', async function(req, res, next) {
     try {
         let dt={}
