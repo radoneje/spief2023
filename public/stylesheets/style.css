@@ -132,9 +132,10 @@ textarea.transUrl{
   background: white;
   padding: 24px;
   border-radius: 12px;
-  max-height: 80vh;
+  height: 80vh;
   overflow-y: auto;
   position: relative;
+  width: 600px;
 }
 .fullScreenBoxClose{
   cursor: pointer;
