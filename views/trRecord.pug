@@ -1,5 +1,5 @@
 .fullScreenFileItem.trRecord
         if file
-            .fullScreenBtn.showRecordFile Посмотреть
+            .fullScreenBtn.showRecordFile(file=file) Посмотреть
             div !{file}
-            .fullScreenBtn.downloadRecordFile Скачать
+            .fullScreenBtn.downloadRecordFile(file=file) Скачать
