@@ -11,56 +11,58 @@ block content
 
     input.btn.btn-success(type="submit" value="Добавить сессию")
 
-  .mt-2.transWr
+  .mt-2.adminTransWr
+
     each tr in translations
       .transItem(id="tr"+tr.id trid=tr.id)
-        .transId.mb-2 ID: #{tr.id}
-        .transItemTitleWr
-          input.transDate.full(value=tr.date name="date"  placeholder="ДД / HH:MM")
-          input.transTitle.full(value=tr.title name="title" placeholder="название")
-          input.transTitle.full(value=tr.shortName name="shortName" placeholder="короткое название")
-          textarea.transUrl(value=tr.descr name="descr"  placeholder="описание")
-        .adminCol.mt-2
-          .adminRow
-            .transItemStatusW.mt-2
-              select.transItemStatus(name="status" value=tr.status)
-                option(value="0"  selected=tr.status==0) Выключена
-                option(value="1"  selected=tr.status==1) Постер
-                option(value="2" selected=tr.status==2) Эфир
-                option(value="3" selected=tr.status==3) Запись
-            //.transItemStatusW.mt-2
-              input.transDate(value=tr.key name="key"  placeholder="CDN KEY")
-          .adminIframe
-            .videoWr
-              iframe(src="/spief2023/player/"+tr.id width="1289" height="720" allowfullscreen)
-        .transItemStatusW.mt-2
-          div
-            label Poster
-            input.transUrl(value=tr.poster name="poster"  placeholder="Poster")
-        .transItemStatusW.mt-2
-          div
-            label ВК Ссылка на видео (поделиться->экспортировать->Прямая ссылка)
-            input.transUrl(value=tr.vklink_ru name="vklink_ru"  placeholder="Вставьте ссылку")
-        .transItemStatusW.mt-2
-          div
-            label ВК Настройки трансляции -> KEY
-            input.transUrl(value=tr.restream_ru name="restream_ru"  placeholder="Вставьте ключ трансляции")
-        .transItemStatusW.mt-2
-          div
-            label ВК IFRAME (поделиться->экспортировать->код для вставки)
-            textarea.transUrl(value=tr.iframe name="iframe"  placeholder="Вставьте код Iframe")
-        .transItemStatusW.mt-2
-          div
-            label Ссылка на СберТВ
-            input.transUrl(value=tr.sbertv_ru name="sbertv_ru"  placeholder="Вставьте ссылку")
-        .transItemStatusW.mt-2.recWr
+        .transItemLang
+          .transId.mb-2 ID: #{tr.id}
+          .transItemTitleWr
+            input.transDate.full(value=tr.date name="date"  placeholder="ДД / HH:MM")
+            input.transTitle.full(value=tr.title name="title" placeholder="название")
+            input.transTitle.full(value=tr.shortName name="shortName" placeholder="короткое название")
+            textarea.transUrl(value=tr.descr name="descr"  placeholder="описание")
+          .adminCol.mt-2
+            .adminRow
+              .transItemStatusW.mt-2
+                select.transItemStatus(name="status" value=tr.status)
+                  option(value="0"  selected=tr.status==0) Выключена
+                  option(value="1"  selected=tr.status==1) Постер
+                  option(value="2" selected=tr.status==2) Эфир
+                  option(value="3" selected=tr.status==3) Запись
+              //.transItemStatusW.mt-2
+                input.transDate(value=tr.key name="key"  placeholder="CDN KEY")
+            .adminIframe
+              .videoWr
+                iframe(src="/spief2023/player/"+tr.id width="1289" height="720" allowfullscreen)
+          .transItemStatusW.mt-2
             div
-              h6 запись ru
-              .btn.btn-sm.btn-success.mt-2 Добавить запись
+              label Poster
+              input.transUrl(value=tr.poster name="poster"  placeholder="Poster")
+          .transItemStatusW.mt-2
             div
-              h6 запись en
-              .btn.btn-sm.btn-success.mt-2 Add record
-
+              label ВК Ссылка на видео (поделиться->экспортировать->Прямая ссылка)
+              input.transUrl(value=tr.vklink_ru name="vklink_ru"  placeholder="Вставьте ссылку")
+          .transItemStatusW.mt-2
+            div
+              label ВК Настройки трансляции -> KEY
+              input.transUrl(value=tr.restream_ru name="restream_ru"  placeholder="Вставьте ключ трансляции")
+          .transItemStatusW.mt-2
+            div
+              label ВК IFRAME (поделиться->экспортировать->код для вставки)
+              textarea.transUrl(value=tr.iframe name="iframe"  placeholder="Вставьте код Iframe")
+          .transItemStatusW.mt-2
+            div
+              label Ссылка на СберТВ
+              input.transUrl(value=tr.sbertv_ru name="sbertv_ru"  placeholder="Вставьте ссылку")
+          .transItemStatusW.mt-2.recWr
+              div
+                h6 запись ru
+                .btn.btn-sm.btn-success.mt-2 Добавить запись
+              div
+                h6 запись en
+                .btn.btn-sm.btn-success.mt-2 Add record
+        .transItemLang BLA-BLA
   script.
     const updateStatus=async()=>{
       let res = await fetch("/spief2023/trStatusAll")
