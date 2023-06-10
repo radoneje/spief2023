@@ -3,10 +3,10 @@
     .fullScreenBoxClose закрыть
     .fullScreenBoxPlayer
         .videoWr
-            video(controls width="1280" height="720")
+            video#fullScreenVideo(controls width="1280" height="720")
     .fullScreenFileWr
             each file in files
-                .fullScreenFileItem
+                .fullScreenFileItem(file=file.filename fileid=file.id)
                     .fullScreenBtn Set as record
                     div !{file.filename}
-                    .fullScreenBtn play
+                    .fullScreenBtn.fullScreenPlayBtn play

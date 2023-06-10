@@ -153,9 +153,18 @@ block content
             let fs=document.createElement("div")
             fs.classList.add("fullScreen")
             fs.innerHTML=await r.text()
-           document.body.appendChild(fs)
+            document.body.appendChild(fs)
             document.querySelector(".fullScreenBoxClose").onclick=()=>{
                 document.body.removeChild(fs)
             }
+            document.querySelectorAll(".fullScreenPlayBtn").forEach(e=>{
+                e.onclick=()=>{
+                    let player=document.querySelector("#fullScreenVideo")
+                    player.setAttribute("fileid", e.getAttribute("fileid"))
+                    player.setAttribute("filename", e.getAttribute("filename"))
+                    player.setAttribute("src", e.getAttribute("filename"))
+                    player.play();
+                }
+            })
         }
 
