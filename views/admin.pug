@@ -198,8 +198,10 @@ block content
             document.querySelectorAll(".showRecordFile").forEach(btn=>{
                 btn.onclick=async ()=>{
                     let file=btn.getAttribute("file")
-                    console.log(btn,btn.getAttribute("file"), file )
-                    let r = await fetch("/spief2023/showPlayer/" +file)
+                    let url="/spief2023/showPlayer/"+file
+                    console.log(btn,btn.getAttribute("file"), file, url )
+
+                    let r = await fetch(url)
                     if (!r.ok)
                         return
                     let fs = document.createElement("div")
