@@ -152,15 +152,15 @@ router.get('/trSbertvExcel', async function(req, res, next) {
     worksheet.getColumn(11).width=60;
 
 
-    worksheet.getColumn(3).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
-    worksheet.getColumn(4).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
-    worksheet.getColumn(5).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
-    worksheet.getColumn(6).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
-    worksheet.getColumn(7).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
-    worksheet.getColumn(8).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
-    worksheet.getColumn(9).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
-    worksheet.getColumn(10).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
-    worksheet.getColumn(10).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
+    worksheet.getColumn(3).alignment = { vertical: 'center', horizontal: 'center', wrapText: true };
+    worksheet.getColumn(4).alignment = { vertical: 'center', horizontal: 'center', wrapText: true };
+    worksheet.getColumn(5).alignment = { vertical: 'center', horizontal: 'center', wrapText: true };
+    worksheet.getColumn(6).alignment = { vertical: 'center', horizontal: 'center', wrapText: true };
+    worksheet.getColumn(7).alignment = { vertical: 'center', horizontal: 'center', wrapText: true };
+    worksheet.getColumn(8).alignment = { vertical: 'center', horizontal: 'center', wrapText: true };
+    worksheet.getColumn(9).alignment = { vertical: 'center', horizontal: 'center', wrapText: true };
+    worksheet.getColumn(10).alignment = { vertical: 'center', horizontal: 'center', wrapText: true };
+    worksheet.getColumn(10).alignment = { vertical: 'center', horizontal: 'center', wrapText: true };
 
 
     let i=0;
