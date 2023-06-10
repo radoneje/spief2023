@@ -148,7 +148,7 @@ router.get('/trSbertvExcel', async function(req, res, next) {
 
 
     let i=0;
-    worksheet.addRow(["Cписок трансляций ПМЭФ 2023"])
+    worksheet.addRow([""])
     worksheet.getRow(1).getCell(1).font={ size: 16, bold: true}
     worksheet.addRow(['Номер', 'Полный заголовок для СберТВ', "Короткий заголовок", "Описание", "Обложка (jpg, строго до 200 Кб)", "Код VK (информация от СберТВ)", "Код плеера для СберТВ","Тестовый ключ (сюда можно подать сигнал и проверить поток 24x7)","Ссылка на сайт СберТВ (работает под сертификатом Минцифры)", "Запись ru", "Запись Eng"]);
     for(let i=1; i<11; i++) {
@@ -157,7 +157,13 @@ router.get('/trSbertvExcel', async function(req, res, next) {
 
     translations.forEach(tr=>{
         i++;
-        worksheet.addRow([i, tr.id, tr.date+" \n"+ tr.title, tr.vklink_ru, tr.iframe, tr.restream_ru, tr.sbertv_ru, tr.rec_ru, tr.rec_en]);
+        let row=worksheet.addRow([i, tr.id, tr.date+" \n"+ tr.title, tr.vklink_ru, tr.iframe, tr.restream_ru, tr.sbertv_ru, tr.rec_ru, tr.rec_en]);
+
+        row.getCell(3).fill = {
+            type: "pattern",
+            pattern: "solid",
+            fgColor: { argb: "FFFF00" },
+        };
     })
 
     res.status(200);
