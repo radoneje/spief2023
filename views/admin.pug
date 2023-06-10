@@ -188,6 +188,7 @@ block content
                     if(!r.ok)
                         return
                     document.body.removeChild(fs)
+                    document.querySelector("#tr"+trid).querySelector(".trRecord").innerHTML=await r.text();
                 }
             })
         }
