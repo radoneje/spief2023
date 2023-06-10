@@ -146,7 +146,7 @@ router.get('/trExcel', async function(req, res, next) {
     worksheet.addRow(["Cписок трансляций ПМЭФ 2023"])
     worksheet.getRow(1).getCell(1).font={ size: 16, bold: true}
     worksheet.addRow(['No', 'Id', "название", "VK link ру ","VK link en", "VK iframe", "VK key ru","VK key en", "SberTV рус", "SberTV en",  "Запись ru", "Запись Eng"]);
-    for(let i=1; i<11; i++) {
+    for(let i=1; i<=12; i++) {
         worksheet.getRow(2).getCell(i).font={ size: 14, bold: true}
     }
 
