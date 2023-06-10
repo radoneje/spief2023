@@ -23,6 +23,7 @@ body {
 }
 .adminTransWr .transItem{
   background: #FFFFFF;
+  margin-bottom: 24px;
 }
 .transItemLang{
   padding: 8px;
