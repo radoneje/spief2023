@@ -202,7 +202,7 @@ block content
                 btn.onclick = () => {
                     let a=document.createElement("a")
                     let file=btn.getAttribute("file")
-                    a.setAttribute("download", file)
+                    a.setAttribute("download", "download")
                     a.setAttribute("target", "_blank")
                     a.href="https://static.sber.link/aij2022streams/spief2023/"+file;
                     a.innerHTML=file
