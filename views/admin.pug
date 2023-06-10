@@ -61,9 +61,9 @@ block content
                             .mt-2.recBox
                                 .fullScreenFileItem.trRecord
                                     if tr.rec_ru
-                                        .fullScreenBtn Посмотреть
-                                        div !{tr.rec_ru}
-                                        .fullScreenBtn Скачать
+                                        .fullScreenBtn.showRecordFile(file=tr.rec_ru) Посмотреть
+                                        .trRecordFile !{tr.rec_ru}
+                                        .fullScreenBtn.downloadRecordFile(file=tr.rec_ru) Скачать
                             .btn.btn-sm.btn-success.mt-2(onclick="showFiles("+tr.id+",'ru')") Добавить запись
 
                 .transItemLang
@@ -112,9 +112,9 @@ block content
                             .mt-2.recBox
                                 .fullScreenFileItem.trRecord
                                     if tr.rec_en
-                                        .fullScreenBtn Посмотреть
-                                        div !{tr.rec_en}
-                                        .fullScreenBtn Скачать
+                                        .fullScreenBtn.showRecordFile(file=tr.rec_en) Посмотреть
+                                        .trRecordFile !{tr.rec_en}
+                                        .fullScreenBtn.downloadRecordFile(file=tr.rec_en) Скачать
 
                             .btn.btn-sm.btn-success.mt-2 ADD Record
 
@@ -191,5 +191,29 @@ block content
                     document.querySelector("#tr"+trid).querySelector(".trRecord").innerHTML=await r.text();
                 }
             })
+        }
+        function initRecBtn()
+        {
+            document.querySelectorAll(".showRecordFile").forEach(btn=>{
+                btn.onclick=()=>{}
+            })
+            document.querySelectorAll(".downloadRecordFile").forEach(btn => {
+                btn.onclick = () => {
+                    let a=document.createElement("a")
+                    let file=btn.getAttribute("file")
+                    a.setAttribute("download", file)
+                    a.href="https://static.sber.link/aij2022streams/spief2023/"+file;
+                    a.style.display="none"
+                    document.body.appendChild(a)
+                    a.click();
+                    setTimeout(()=>{document.body.removeChild(a)},100)
+
+                }
+            })
+            /*
+            .fullScreenBtn.showRecordFile(file=tr.rec_en) Посмотреть
+                                                    .trRecordFile !{tr.rec_en}
+                                                    .fullScreenBtn.downloadRecordFile(file=tr.rec_en) Скачать
+            * */
         }
 
