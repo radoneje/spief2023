@@ -135,6 +135,59 @@ router.get('/trExcel', async function(req, res, next) {
 
 
 
+router.get('/trSbertvExcel', async function(req, res, next) {
+    let translations=await req.knex("t_translations").orderBy("date")
+    const workbook = new ExcelJS.Workbook();
+    const worksheet = workbook.addWorksheet('Трансляции ПМЭФ 2023 на СберТВ');
+    worksheet.getColumn(1).width=10;
+    worksheet.getColumn(2).width=60;
+    worksheet.getColumn(3).width=60;
+    worksheet.getColumn(4).width=60;
+    worksheet.getColumn(5).width=60;
+    worksheet.getColumn(6).width=60;
+    worksheet.getColumn(7).width=60;
+    worksheet.getColumn(8).width=60;
+    worksheet.getColumn(9).width=60;
+    worksheet.getColumn(10).width=60;
+    worksheet.getColumn(11).width=60;
+
+
+    worksheet.getColumn(3).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
+    worksheet.getColumn(4).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
+    worksheet.getColumn(5).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
+    worksheet.getColumn(6).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
+    worksheet.getColumn(7).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
+    worksheet.getColumn(8).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
+    worksheet.getColumn(9).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
+    worksheet.getColumn(10).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
+    worksheet.getColumn(10).alignment = { vertical: 'top', horizontal: 'left', wrapText: true };
+
+
+    let i=0;
+    worksheet.addRow(["Cписок трансляций ПМЭФ 2023"])
+    worksheet.getRow(1).getCell(1).font={ size: 16, bold: true}
+    worksheet.addRow(['Номер', 'Полный заголовок для СберТВ', "Короткий заголовок", "Описание", "Обложка (jpg, строго до 200 Кб)", "Код VK (информация от СберТВ)", "Код плеера для СберТВ","Тестовый ключ (сюда можно подать сигнал и проверить поток 24x7)","Ссылка на сайт СберТВ (работает под сертификатом Минцифры)", "Запись ru", "Запись Eng"]);
+    for(let i=1; i<11; i++) {
+        worksheet.getRow(2).getCell(i).font={ size: 14, bold: true}
+    }
+
+    translations.forEach(tr=>{
+        i++;
+        worksheet.addRow([i, tr.id, tr.date+" \n"+ tr.title, tr.vklink_ru, tr.iframe, tr.restream_ru, tr.sbertv_ru, tr.rec_ru, tr.rec_en]);
+    })
+
+    res.status(200);
+    res.setHeader('Content-Type', 'text/xlsx');
+    res.setHeader(
+        'Content-Disposition',
+        'attachment; filename=SPIEF2023_translations.xlsx'
+    );
+    await  workbook.xlsx.write(res)
+    res.end()
+});
+
+
+
 
 
 
