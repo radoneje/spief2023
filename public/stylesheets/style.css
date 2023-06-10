@@ -141,7 +141,7 @@ textarea.transUrl{
   cursor: pointer;
   position: absolute;
   right: 12px;
-  top: 12px;
+  top: -2px;
   font-size: 10px;
   padding: 8px 4px;
   z-index: 100;

@@ -159,10 +159,11 @@ block content
             }
             document.querySelectorAll(".fullScreenPlayBtn").forEach(e=>{
                 e.onclick=()=>{
+                    let item=e.closest(".fullScreenFileItem")
                     let player=document.querySelector("#fullScreenVideo")
-                    player.setAttribute("fileid", e.getAttribute("fileid"))
-                    player.setAttribute("filename", e.getAttribute("filename"))
-                    player.setAttribute("src", e.getAttribute("filename"))
+                    player.setAttribute("fileid", item.getAttribute("fileid"))
+                    player.setAttribute("filename", item.getAttribute("filename"))
+                    player.setAttribute("src", item.getAttribute("filename"))
                     player.play();
                 }
             })
