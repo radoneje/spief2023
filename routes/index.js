@@ -137,28 +137,14 @@ router.get('/trSbertvExcel', async function(req, res, next) {
     let translations=await req.knex("t_translations").orderBy("date")
     const workbook = new ExcelJS.Workbook();
     const worksheet = workbook.addWorksheet('Трансляции ПМЭФ 2023 на СберТВ');
-    worksheet.getColumn(1).width=10;
-    worksheet.getColumn(2).width=60;
-    worksheet.getColumn(3).width=60;
-    worksheet.getColumn(4).width=60;
-    worksheet.getColumn(5).width=60;
-    worksheet.getColumn(6).width=60;
-    worksheet.getColumn(7).width=60;
-    worksheet.getColumn(8).width=60;
-    worksheet.getColumn(9).width=60;
-    worksheet.getColumn(10).width=60;
-    worksheet.getColumn(11).width=60;
 
-
-    worksheet.getColumn(3).alignment = { vertical: 'center', horizontal: 'center', wrapText: true };
-    worksheet.getColumn(4).alignment = { vertical: 'center', horizontal: 'center', wrapText: true };
-    worksheet.getColumn(5).alignment = { vertical: 'center', horizontal: 'center', wrapText: true };
-    worksheet.getColumn(6).alignment = { vertical: 'center', horizontal: 'center', wrapText: true };
-    worksheet.getColumn(7).alignment = { vertical: 'center', horizontal: 'center', wrapText: true };
-    worksheet.getColumn(8).alignment = { vertical: 'center', horizontal: 'center', wrapText: true };
-    worksheet.getColumn(9).alignment = { vertical: 'center', horizontal: 'center', wrapText: true };
-    worksheet.getColumn(10).alignment = { vertical: 'center', horizontal: 'center', wrapText: true };
-    worksheet.getColumn(10).alignment = { vertical: 'center', horizontal: 'center', wrapText: true };
+    for(let i=1; i<=11; i++) {
+        if(i==1)
+            worksheet.getColumn(1).width=10;
+        else
+            worksheet.getColumn(i).width=60;
+        worksheet.getColumn(i).alignment = { vertical: 'center', horizontal: 'center', wrapText: true };
+    }
 
 
     let i=0;
