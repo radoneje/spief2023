@@ -18,7 +18,7 @@ cut();
 async function cut() {
 
     let tasks = await knex("t_cut").where({done: false})
-
+    console.log("start")
     for (let task of tasks) {
         let rec = await knex("t_records").where({id: task.fileid})
         let params = [
@@ -42,6 +42,7 @@ async function cut() {
         });
         ffmpeg.on('exit', async function () {
             console.log("complite")
+        });
             await knex("t_cut").update({done: true}).where({id: task.id})
             await knex("t_records").insert({
                 filename: task.newfilename,
@@ -50,7 +51,7 @@ async function cut() {
                 trid: rec[0].trid,
                 lang: rec[0].lang,
             })
-        });
+
     }
 
     setTimeout(cut, 10 * 1000);
