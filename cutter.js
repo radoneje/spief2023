@@ -31,7 +31,7 @@ async function cut() {
             "/var/mnt/spief2023/" + task.newfilename
 
         ]
-        let ffmpeg = spawn("ffmpeg", params, { detached: true, stdio: [ 'ignore', out, err ] });
+        let ffmpeg = spawn("ffmpeg", params, { detached: true});
         /*ffmpeg.stdout.on('data', function (chunk) {
             var textChunk = chunk.toString('utf8');
             console.log(textChunk);
