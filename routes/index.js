@@ -345,14 +345,14 @@ router.get('/cutFile/:fileid/:markin/:markout', async function(req, res, next) {
         let dt={}
 
         let r =await req.knex("t_records").where({id:req.params.fileid})
-        let newfilename=r[0].filename.replace(/\.mp4$/,"_cut_"+moment().format("HH:mm")+"_.mp4")
+        let newfilename=r[0].filename.replace(/\.mp4$/,"_cut_"+moment().format("HH_mm_ss")+"_.mp4")
         let match=req.params.markin.match(/(\d\d):(\d\d):(\d\d)/)
         let secIn=parseInt(match[1])*3600+parseInt(match[2])*60+parseInt(match[3])
          match=req.params.markout.match(/(\d\d):(\d\d):(\d\d)/)
         let secOut=parseInt(match[1])*3600+parseInt(match[2])*60+parseInt(match[3])
 
         let total=secOut-secIn;
-        let dur=moment().startOf('day').add(total, "second").format("HH_mm_ss")
+        let dur=moment().startOf('day').add(total, "second").format("HH:mm:ss")
 
         await req.knex("t_cut").insert({
             fileid:r[0].id,
