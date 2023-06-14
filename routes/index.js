@@ -362,7 +362,7 @@ router.get('/cutFile/:fileid/:markin/:markout', async function(req, res, next) {
             dur
         });
 
-       res.json({total,secOut,secIn;})
+       res.json({total,secOut,secIn})
     }
     catch (e){
         console.warn(e)
