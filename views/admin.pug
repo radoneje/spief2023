@@ -179,6 +179,7 @@ block content
                     player.setAttribute("file", item.getAttribute("file"))
                     player.setAttribute("src","https://static.sber.link/aij2022streams/spief2023/"+ item.getAttribute("file"))
                     player.play();
+                    document.querySelector( ".videoCutButtons").style.display="flex";
                 }
             })
             document.querySelectorAll(".fullScreenSetBtn").forEach(e => {

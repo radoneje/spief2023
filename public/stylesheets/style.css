@@ -170,6 +170,10 @@ textarea.transUrl{
   background: wheat;
   grid-template-columns: 88px 1fr 66px;
 }
+.videoCutButtons{
+  display: none;
+
+}
 
 @media all and (max-width:980px)  {
   .transWr{

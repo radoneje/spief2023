@@ -4,6 +4,13 @@
     .fullScreenBoxPlayer
         .videoWr
             video#fullScreenVideo(controls width="1280" height="720")
+        .videoCutButtons
+            .videoCutButton IN:
+                #markIn 00:00:00
+            .videoCutButton OUT:
+                #markOut 99:99:99
+            .videoCutButton#btnCut CUT IT!
+
     .fullScreenFileWr
             each file in files
                 .fullScreenFileItem(file=file.filename fileid=file.id)
