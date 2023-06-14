@@ -350,6 +350,7 @@ router.get('/cutFile/:fileid/:markin/:markout', async function(req, res, next) {
         let secIn=parseInt(match[1])*3600+parseInt(match[2])*60+parseInt(match[3])
          match=req.params.markout.match(/(\d\d):(\d\d):(\d\d)/)
         let secOut=parseInt(match[1])*3600+parseInt(match[2])*60+parseInt(match[3])
+
         let total=secOut-secIn;
         let dur=moment().startOf('day').add(total, "second").format("HH_mm_ss")
 
@@ -361,7 +362,7 @@ router.get('/cutFile/:fileid/:markin/:markout', async function(req, res, next) {
             dur
         });
 
-       res.json(r[0])
+       res.json({total,secOut,secIn;})
     }
     catch (e){
         console.warn(e)
