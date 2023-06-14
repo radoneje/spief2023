@@ -40,6 +40,7 @@ async function cut() {
             console.error(textChunk);
         });
         ffmpeg.on('exit', async function () {
+            console.log("complite")
             await knex("t_cut").update({done: true}).where({id: task.id})
             await knex("t_records").insert({
                 filename: task.newfilename,
