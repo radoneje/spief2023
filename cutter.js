@@ -29,6 +29,15 @@ async function cut(){
             "/var/mnt/spief2023/"+task.newfilename
 
         ]
-        console.log(params)
+        await knex("t_cut").update({done:true}).where({id:task.id})
+        await knex("t_records").insert({
+            filename:task.newfilename,
+            done:true,
+            doneDate:new Date(),
+            trid:rec[0].trid,
+            lang:rec[0].lang,
+        })
     }
+
+    setTimeout(cut, 10*1000);
 }
