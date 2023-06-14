@@ -25,6 +25,7 @@ async function cut() {
             "-ss", task.markin,
             "-i", "/var/mnt/spief2023/" + rec[0].filename,
             "-c", "copy",
+            "-t", task.dur,
             "-movflags", "faststart",
             "-y",
             "/var/mnt/spief2023/" + task.newfilename
