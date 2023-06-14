@@ -179,12 +179,23 @@ block content
                     player.setAttribute("file", item.getAttribute("file"))
                     player.setAttribute("src","https://static.sber.link/aij2022streams/spief2023/"+ item.getAttribute("file"))
                     player.play();
+                    let elem=document.getElementById("markIn");
+                    elem.removeAttribute("value")
+                    elem.innerHTML="00:00:00"
+                     elem=document.getElementById("markOut")
+                         elem.removeAttribute("value")
+                    elem.innerHTML="99:99:00"
+
                     document.querySelector( ".videoCutButtons").style.display="flex";
                     document.getElementById("markInBtn").onclick=()=>{
-                        document.getElementById("markIn").innerHTML=player.currentTime;
+                        let elem=document.getElementById("markIn");
+                        elem.setAttribute("value",player.currentTime)
+                        elem.innerHTML=player.currentTime;
                     }
                     document.getElementById("markOutBtn").onclick = () => {
-                        document.getElementById("markOut").innerHTML = player.currentTime;
+                        let elem = document.getElementById("markOut");
+                        elem.setAttribute("value", player.currentTime)
+                        elem.innerHTML = player.currentTime;
                     }
                 }
             })
