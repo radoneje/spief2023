@@ -164,6 +164,7 @@ block content
         }
         updateStatus();
         function formatSS(totalSeconds){
+            totalSeconds=parseInt(totalSeconds)
             let hours = Math.floor(totalSeconds / 3600);
             totalSeconds %= 3600;
             let minutes = Math.floor(totalSeconds / 60);
