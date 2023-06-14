@@ -14,6 +14,7 @@
     .fullScreenFileWr
             each file in files
                 .fullScreenFileItem(file=file.filename fileid=file.id)
-                    .fullScreenBtn.fullScreenSetBtn Set as record
+                    .fullScreenBtn.fullScreenPlayBtn &#9654;
                     div !{file.filename}
-                    .fullScreenBtn.fullScreenPlayBtn play
+
+                    .fullScreenBtn.fullScreenSetBtn Set as record
