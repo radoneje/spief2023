@@ -210,7 +210,7 @@ block content
                         elem.setAttribute("value", player.currentTime)
                         elem.innerHTML = formatSS(player.currentTime);
                     }
-                    document.getElementById("markOutBtn").onclick = async () => {
+                    document.getElementById("btnCut").onclick = async () => {
                         let inPiont = document.getElementById("markIn").innerHTML;
                         let outPiont = document.getElementById("markOut").innerHTML;
                         if(inPiont && outPiont) {
@@ -218,6 +218,7 @@ block content
                             let r = await fetch("/spief2023/cutFile/" + fileid + "/" + inPiont + "/" + outPiont)
 
                         }
+
 
                     }
                 }
