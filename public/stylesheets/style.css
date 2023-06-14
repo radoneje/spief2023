@@ -172,7 +172,19 @@ textarea.transUrl{
 }
 .videoCutButtons{
   display: none;
-
+  align-items: baseline;
+  justify-content: left;
+}
+.videoCutButton{
+  width: 110px;
+  display: flex;
+  color: white;
+  background: blue;
+  cursor: pointer;
+  padding: 4px 8px;
+  text-align: center;
+  margin-right: 8px;
+  font-size: 12px;
 }
 
 @media all and (max-width:980px)  {
