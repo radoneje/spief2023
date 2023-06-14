@@ -216,7 +216,8 @@ block content
                         if(inPiont && outPiont) {
                             let fileid = item.getAttribute("fileid")
                             let r = await fetch("/spief2023/cutFile/" + fileid + "/" + inPiont + "/" + outPiont)
-
+                            if(r.ok)
+                                alert("задание на конвертацию установлено, файл будет здесь через 5 минут")
                         }
 
 
