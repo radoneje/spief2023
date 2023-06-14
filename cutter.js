@@ -22,7 +22,7 @@ async function cut(){
         let rec=await knex("t_records").where({id:task.fileid})
         let params =[
             "-ss", task.markin,
-            "-i", "/var/mnt/spief2023/"+task.rec[0].filename,
+            "-i", "/var/mnt/spief2023/"+rec[0].filename,
             "-c","copy",
             "-movflags", "faststart",
             "-y",
