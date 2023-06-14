@@ -353,7 +353,7 @@ router.get('/cutFile/:fileid/:markin/:markout', async function(req, res, next) {
         let total=secOut-secIn;
         let dur=moment().startOf('day').add(total, "second").format("HH:MM:SS")
 
-        await req.knex("t_records").insert({
+        await req.knex("t_cut").insert({
             fileid:r[0].id,
             markin:req.params.markin,
             markout:req.params.markout,
