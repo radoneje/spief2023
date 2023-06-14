@@ -31,8 +31,8 @@ async function cut() {
             "/var/mnt/spief2023/" + task.newfilename
 
         ]
-        let ffmpeg = spawn("ffmpeg", params);
-        ffmpeg.stdout.on('data', function (chunk) {
+        let ffmpeg = spawn("ffmpeg", params, { detached: true, stdio: [ 'ignore', out, err ] });
+        /*ffmpeg.stdout.on('data', function (chunk) {
             var textChunk = chunk.toString('utf8');
             console.log(textChunk);
         });
@@ -42,7 +42,7 @@ async function cut() {
         });
         ffmpeg.on('exit', async function () {
             console.log("complite")
-        });
+        });*/
             await knex("t_cut").update({done: true}).where({id: task.id})
             await knex("t_records").insert({
                 filename: task.newfilename,
